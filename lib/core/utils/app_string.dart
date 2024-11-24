@@ -1,5 +1,5 @@
 abstract class AppString {
-  static final appName = "Dalel";
+  static final appName = "Delivery Man";
   static final next = "Next";
   static final skip = "skip";
   static final welcom = "Welcome!";
