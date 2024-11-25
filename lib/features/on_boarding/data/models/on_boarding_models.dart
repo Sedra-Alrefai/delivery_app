@@ -16,7 +16,7 @@ List<OnBoardingModels> onBoardingData = [
   OnBoardingModels(
     imagePath: Assets.onBoarding2,
     title:
-        "Turn your items into earnings! Sell your products effortlessly with Delivery Man.",
+        "Turn your items into earnings! Sell your products effortlessly with Delivery Man",
   ),
   OnBoardingModels(
     imagePath: Assets.onBoarding3,

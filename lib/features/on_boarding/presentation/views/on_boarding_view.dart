@@ -1,14 +1,20 @@
-import 'package:delivery_app/core/utils/app_String.dart';
-import 'package:delivery_app/core/utils/app_colors.dart';
-import 'package:delivery_app/core/utils/app_text_Style.dart';
-import 'package:delivery_app/core/widget/Custom_button.dart';
+import 'package:delivery_app/core/function/navigation.dart';
+
 import 'package:delivery_app/features/on_boarding/presentation/views/widgets/custom_nav_par.dart';
+import 'package:delivery_app/features/on_boarding/presentation/views/widgets/get_buttons.dart';
 import 'package:delivery_app/features/on_boarding/presentation/views/widgets/on_boarding_widget_view.dart';
 import 'package:flutter/material.dart';
 
-class OnBoardingView extends StatelessWidget {
+class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
 
+  @override
+  State<OnBoardingView> createState() => _OnBoardingViewState();
+}
+
+class _OnBoardingViewState extends State<OnBoardingView> {
+  final PageController _controller = PageController(initialPage: 0);
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,15 +27,25 @@ class OnBoardingView extends StatelessWidget {
               const SizedBox(
                 height: 44,
               ),
-              CustomNavBar(),
-              onBoardingWidgetBody(),
+              CustomNavBar(
+                onTap: () {
+                  CustomNavigationReplacement(context, '/SignInView');
+                },
+              ),
+              onBoardingWidgetBody(
+                onPageChanged: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+                controller: _controller,
+              ),
               const SizedBox(
                 height: 100,
               ),
-              CustomButton(
-                color: AppColors.tealGreen,
-                onTap: () {},
-                text: 'NEXT',
+              GetButtons(
+                currentIndex: currentIndex,
+                controller: _controller,
               ),
               const SizedBox(
                 height: 26,
