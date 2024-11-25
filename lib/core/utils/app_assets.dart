@@ -1,9 +1,7 @@
 abstract class Assets {
-  static const onBoardingOne = "assets/images/onBoardingOne.png";
+  static const splashView = "";
 
-  static const onBoardingTwo = "assets/images/onBoardingTwo.png";
-  static const onBoarding3 = "assets/images/onBording3.png";
-  static const onBoarding4 = "assets/images/onBoarding4.png";
-  static const onBoarding5 = "assets/images/onBoarding5.png";
-  static const onBoarding6 = "assets/images/onBoarding6.png";
+  static const onBoarding1 = "assets/image/onBoarding1.png";
+  static const onBoarding2 = "assets/image/onBoarding2.png";
+  static const onBoarding3 = "assets/image/onBoarding3.png";
 }
