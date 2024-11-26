@@ -1,8 +1,13 @@
+import 'package:delivery_app/core/database/cache/cache_helper.dart';
 import 'package:delivery_app/core/routes/app_routes.dart';
+import 'package:delivery_app/core/service/servise_locator.dart';
 import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
+  await getIt<CashHelper>().init();
   return runApp(DeliveryApp());
 }
 

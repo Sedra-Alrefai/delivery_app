@@ -1,4 +1,6 @@
+import 'package:delivery_app/core/database/cache/cache_helper.dart';
 import 'package:delivery_app/core/function/navigation.dart';
+import 'package:delivery_app/core/service/servise_locator.dart';
 
 import 'package:delivery_app/features/on_boarding/presentation/views/widgets/custom_nav_par.dart';
 import 'package:delivery_app/features/on_boarding/presentation/views/widgets/get_buttons.dart';
@@ -29,7 +31,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ),
               CustomNavBar(
                 onTap: () {
-                  CustomNavigationReplacement(context, '/SignInView');
+                  getIt<CashHelper>()
+                      .saveData(key: "isOnBoardingVisited", value: true);
+                  CustomNavigationReplacement(context, '/SignUpView');
                 },
               ),
               onBoardingWidgetBody(
