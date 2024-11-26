@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const DeliveryApp());
 }
 
@@ -9,6 +11,13 @@ class DeliveryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        // DeliveryHomePag.id: (context) => const DeliveryHomePage(),
+        // LoginPage.id: (context) => const LoginPage(),
+      },
+      // initialRoute: LoginPage.id,
+    );
   }
 }

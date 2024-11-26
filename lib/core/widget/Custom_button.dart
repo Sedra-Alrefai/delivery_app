@@ -1,28 +1,29 @@
-import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/material.dart';
 
-class CustomBtn extends StatelessWidget {
-  final Color? color;
-  final String text;
-  final VoidCallback? onPressed;
-  const CustomBtn({super.key, this.color, required this.text, this.onPressed});
+// ignore: must_be_immutable
+class CustomButton extends StatelessWidget {
+  CustomButton({super.key, this.onTap, required this.text, this.color});
+  VoidCallback? onTap;
+  String text;
+  Color? color;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 56,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: color ?? AppColors.prymaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            )),
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: CustomTextStyle.poppins500Style24
-              .copyWith(fontSize: 16, color: AppColors.offwhite),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 300,
+        height: 45,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: CustomTextStyle.Parkinsans300Style16.copyWith(
+                color: Colors.white),
+          ),
         ),
       ),
     );
