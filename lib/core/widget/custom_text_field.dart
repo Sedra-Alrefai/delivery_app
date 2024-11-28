@@ -6,16 +6,19 @@ class CustomTextField extends StatelessWidget {
       required this.hintText,
       required this.icon,
       required this.color,
-      required this.textColor});
+      required this.textColor,
+      this.controller});
   final String hintText;
   final Icon icon;
   final Color color;
   final Color textColor;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 70,
       child: TextField(
+        controller: controller,
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),

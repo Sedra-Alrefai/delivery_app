@@ -1,3 +1,4 @@
+import 'package:delivery_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,13 +12,9 @@ class DeliveryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {
-        // DeliveryHomePag.id: (context) => const DeliveryHomePage(),
-        // LoginPage.id: (context) => const LoginPage(),
-      },
-      // initialRoute: LoginPage.id,
+      home: HomeView(),
     );
   }
 }

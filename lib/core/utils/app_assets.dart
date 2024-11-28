@@ -4,5 +4,5 @@ abstract class Assets {
   static const onBoarding1 = "assets/image/onBoarding1.png";
   static const onBoarding2 = "assets/image/onBoarding2.png";
   static const onBoarding3 = "assets/image/onBoarding3.png";
-  static const deliveryManLogo = "";
+  static const storeImage = "assets/image/store.jpg";
 }
