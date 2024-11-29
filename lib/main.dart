@@ -1,4 +1,7 @@
+import 'package:delivery_app/features/favorite/favorite_view.dart';
 import 'package:delivery_app/features/home/presentation/views/home_view.dart';
+import 'package:delivery_app/features/markets/markets_view.dart';
+import 'package:delivery_app/features/user/user_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,9 +15,15 @@ class DeliveryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
+      initialRoute: '/HomeView',
+      routes: {
+        '/HomeView': (context) => const HomeView(),
+        '/MarketsView': (context) => const MarketsView(),
+        '/FavoriteView': (context) => const FavoriteView(),
+        '/UserView': (context) => const UserView(),
+      },
     );
   }
 }

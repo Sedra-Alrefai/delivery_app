@@ -27,7 +27,7 @@ final GoRouter router = GoRouter(initialLocation: '/HomeView', routes: [
   ),
   GoRoute(
     path: "/HomeView",
-    builder: (context, state) => const HomeView(),
+    builder: (context, state) => HomeView(),
   ),
   GoRoute(
     path: "/FavoriteView",
@@ -38,7 +38,7 @@ final GoRouter router = GoRouter(initialLocation: '/HomeView', routes: [
     builder: (context, state) => const UserView(),
   ),
   GoRoute(
-    path: "/marketsView",
+    path: "/MarketsView",
     builder: (context, state) => const MarketsView(),
   ),
 ]);

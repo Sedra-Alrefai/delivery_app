@@ -1,4 +1,5 @@
 import 'package:delivery_app/core/utils/app_colors.dart';
+import 'package:delivery_app/features/favorite/favorite_view.dart';
 import 'package:delivery_app/features/home/presentation/models/category_model.dart';
 import 'package:delivery_app/features/home/presentation/models/store_model.dart';
 import 'package:delivery_app/features/home/presentation/views_model/product_data.dart';
@@ -7,13 +8,37 @@ import 'package:delivery_app/features/home/presentation/widget/custom_categories
 import 'package:delivery_app/features/home/presentation/widget/custom_store_list.dart';
 import 'package:delivery_app/features/home/presentation/widget/header_search_cart.dart';
 import 'package:delivery_app/features/home/presentation/widget/product_card.dart';
+import 'package:delivery_app/features/markets/markets_view.dart';
+import 'package:delivery_app/features/user/user_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
   static const String id = 'Home Page';
+  final int currentIndex;
+  const HomeView({super.key, this.currentIndex = 0});
 
-  final int currentIndex = 0;
+  void _navigateTo(BuildContext context, int index) {
+    if (index != currentIndex) {
+      switch (index) {
+        case 0:
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (_) => const HomeView()));
+          break;
+        case 1:
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (_) => const MarketsView()));
+          break;
+        case 2:
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (_) => const FavoriteView()));
+          break;
+        case 3:
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (_) => const UserView()));
+          break;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,8 +106,11 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: currentIndex,
+      bottomNavigationBar: CustomBottomNavigatorBar(
+        currentIndex: 0,
+        onTap: (index) {
+          _navigateTo(context, index);
+        },
       ),
     );
   }
