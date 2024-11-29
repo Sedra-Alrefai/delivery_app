@@ -1,4 +1,3 @@
-import 'package:delivery_app/core/function/navigation.dart';
 import 'package:delivery_app/features/favorite/favorite_view.dart';
 import 'package:delivery_app/features/home/presentation/views/home_view.dart';
 import 'package:delivery_app/features/home/presentation/widget/Custom_bottom_navigator_bar.dart';
@@ -35,6 +34,9 @@ class MarketsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('All'),
+      ),
       body: Text(' Markets View'),
       bottomNavigationBar: CustomBottomNavigatorBar(
         currentIndex: 1,

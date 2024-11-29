@@ -1,3 +1,5 @@
+import 'package:delivery_app/core/utils/app_colors.dart';
+import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/material.dart';
 
 class CustomCategory extends StatelessWidget {
@@ -11,7 +13,7 @@ class CustomCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double height = 30.0;
-    const Color color = Color(0xff1AC0B2);
+    Color color = AppColors.tealGreen;
     return SizedBox(
       height: height + 16,
       child: ListView.builder(
@@ -34,11 +36,7 @@ class CustomCategory extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     categories[index],
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: CustomTextStyle.parkinsans400StyleW14,
                     textAlign: TextAlign.center,
                   ),
                 ),

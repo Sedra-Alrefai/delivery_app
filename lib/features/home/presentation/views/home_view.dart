@@ -1,4 +1,5 @@
 import 'package:delivery_app/core/utils/app_colors.dart';
+import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:delivery_app/features/favorite/favorite_view.dart';
 import 'package:delivery_app/features/home/presentation/models/category_model.dart';
 import 'package:delivery_app/features/home/presentation/models/store_model.dart';
@@ -8,7 +9,7 @@ import 'package:delivery_app/features/home/presentation/widget/custom_categories
 import 'package:delivery_app/features/home/presentation/widget/custom_store_list.dart';
 import 'package:delivery_app/features/home/presentation/widget/header_search_cart.dart';
 import 'package:delivery_app/features/home/presentation/widget/product_card.dart';
-import 'package:delivery_app/features/markets/markets_view.dart';
+import 'package:delivery_app/features/markets/presentation/views/markets_view.dart';
 import 'package:delivery_app/features/user/user_view.dart';
 import 'package:flutter/material.dart';
 
@@ -46,12 +47,11 @@ class HomeView extends StatelessWidget {
       backgroundColor: AppColors.lightafwait,
       body: CustomScrollView(
         slivers: [
-          // الجزء العلوي (شريط البحث والفئات والمتاجر)
           SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HeaderSearchCart(),
+                const HeaderSearchCart(),
                 const SizedBox(height: 16),
                 CustomCategory(categories: categories),
                 const SizedBox(height: 24),
@@ -59,10 +59,7 @@ class HomeView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     'The best stores of our app!',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.deepTeal),
+                    style: CustomTextStyle.parkinsans400Style20,
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -72,27 +69,25 @@ class HomeView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     'Recommended for you:',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.deepTeal),
+                    style: CustomTextStyle.parkinsans400Style20,
                   ),
                 ),
                 const SizedBox(height: 16),
               ],
             ),
           ),
-
-          // قائمة المنتجات الديناميكية
-          SliverList(
+          SliverGrid(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 2.0,
+              crossAxisSpacing: 2.0,
+              childAspectRatio: 0.9,
+            ),
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                // هنا تحتاج إلى تمرير قائمة المنتجات
-                final product =
-                    products[index]; // استبدل `products` بقائمة منتجاتك.
+                final product = products[index];
                 return Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: ProductCard(
                     name: product.name,
                     store: product.store,
@@ -101,7 +96,7 @@ class HomeView extends StatelessWidget {
                   ),
                 );
               },
-              childCount: products.length, // استبدل بقائمة عدد المنتجات.
+              childCount: products.length, // عدد المنتجات
             ),
           ),
         ],

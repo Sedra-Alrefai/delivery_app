@@ -1,3 +1,4 @@
+import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -10,18 +11,25 @@ class HeaderSearchCart extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: CustomTextField(
               hintText: 'Search for stores or products',
-              icon: Icon(Icons.search),
-              color: Colors.white,
-              textColor: Colors.grey,
+              icon: Icon(
+                Icons.search,
+                color: AppColors.grey,
+              ),
+              color: AppColors.afwait,
+              textColor: AppColors.grey,
             ),
           ),
           const SizedBox(width: 6),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.add_shopping_cart, color: Color(0xFFFC823C)),
+            icon: Icon(
+              Icons.add_shopping_cart,
+              color: AppColors.goldenOrange,
+              size: 30,
+            ),
           ),
         ],
       ),

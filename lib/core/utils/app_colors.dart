@@ -9,4 +9,6 @@ abstract class AppColors {
   static Color deepTeal = const Color(0xff374A4E);
   static Color lightafwait = const Color(0xffF9F9F9);
   static Color black = const Color(0xff333333);
+  static Color grey = Colors.grey;
+  static Color amberStars = Colors.amber;
 }

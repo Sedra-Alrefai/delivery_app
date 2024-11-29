@@ -1,3 +1,5 @@
+import 'package:delivery_app/core/utils/app_colors.dart';
+import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -54,13 +56,7 @@ class StoreCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
+                  Text(name, style: CustomTextStyle.Parkinsans300Style16),
                   const SizedBox(height: 4),
                   Text(
                     location,
@@ -72,9 +68,9 @@ class StoreCard extends StatelessWidget {
                   const SizedBox(height: 4),
                   RatingBarIndicator(
                     rating: rating,
-                    itemBuilder: (context, _) => const Icon(
+                    itemBuilder: (context, _) => Icon(
                       Icons.star,
-                      color: Colors.amber,
+                      color: AppColors.amberStars,
                     ),
                     itemCount: 5,
                     itemSize: 16.0,

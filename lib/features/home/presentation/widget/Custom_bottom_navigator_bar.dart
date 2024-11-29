@@ -57,13 +57,13 @@ class CustomBottomNavigatorBar extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: isActive ? AppColors.deepTeal : Colors.grey,
+            color: isActive ? AppColors.goldenOrange : AppColors.grey,
           ),
           Text(
             label,
             style: TextStyle(
               fontSize: 12,
-              color: isActive ? Colors.deepPurple : Colors.grey,
+              color: isActive ? AppColors.goldenOrange : AppColors.grey,
             ),
           ),
         ],

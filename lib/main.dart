@@ -1,6 +1,6 @@
 import 'package:delivery_app/features/favorite/favorite_view.dart';
 import 'package:delivery_app/features/home/presentation/views/home_view.dart';
-import 'package:delivery_app/features/markets/markets_view.dart';
+import 'package:delivery_app/features/markets/presentation/views/markets_view.dart';
 import 'package:delivery_app/features/user/user_view.dart';
 import 'package:flutter/material.dart';
 

@@ -45,10 +45,27 @@ abstract class CustomTextStyle {
     fontWeight: FontWeight.w500,
     color: AppColors.black,
   );
-  static final Parkinsans400Style12 = TextStyle(
+  static final Parkinsans400Style15 = TextStyle(
     fontFamily: 'Parkinsans',
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: AppColors.black,
+  );
+  static final Parkinsans400StyleG15 = TextStyle(
+    fontFamily: 'Parkinsans',
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: AppColors.grey,
+  );
+  static final parkinsans400Style20 = TextStyle(
+      fontFamily: 'Parkinsans',
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: AppColors.deepTeal);
+  static const parkinsans400StyleW14 = TextStyle(
+    fontFamily: 'Parkinsans',
+    color: Colors.white,
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
   );
 }
