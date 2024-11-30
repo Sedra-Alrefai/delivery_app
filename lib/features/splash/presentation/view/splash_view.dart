@@ -1,4 +1,6 @@
+import 'package:delivery_app/core/database/cache/cache_helper.dart';
 import 'package:delivery_app/core/function/navigation.dart';
+import 'package:delivery_app/core/service/servise_locator.dart';
 import 'package:delivery_app/features/splash/presentation/view/splash_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,13 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    delayedNavigate(context);
+    bool isOnBoardingVisited =
+        getIt<CashHelper>().getData(key: "isOnBoardingVisited") ?? false;
+    if (isOnBoardingVisited == true) {
+      delayedNavigate(context, "/SignUpView");
+    } else {
+      delayedNavigate(context, '/onBoarding');
+    }
     super.initState();
   }
 
@@ -24,7 +32,7 @@ class _SplashViewState extends State<SplashView> {
   }
 }
 
-void delayedNavigate(context) {
+void delayedNavigate(context, path) {
   Future.delayed(
       const Duration(
         seconds: 2,

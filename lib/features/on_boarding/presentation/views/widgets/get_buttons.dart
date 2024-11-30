@@ -4,6 +4,7 @@ import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:delivery_app/core/widget/Custom_button.dart';
 import 'package:delivery_app/features/on_boarding/data/models/on_boarding_models.dart';
+import 'package:delivery_app/features/on_boarding/presentation/views/functions/on_boarding.dart';
 import 'package:flutter/material.dart';
 
 class GetButtons extends StatelessWidget {
@@ -20,7 +21,8 @@ class GetButtons extends StatelessWidget {
             text: 'NEXT',
             color: AppColors.darkTealBlue,
             onTap: () {
-              CustomNavigationReplacement(context, '/SignUpView');
+              onBoardingVisited();
+              CustomNavigationReplacement(context, '/SignInView');
             },
           ),
           const SizedBox(
@@ -28,6 +30,7 @@ class GetButtons extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
+              onBoardingVisited();
               CustomNavigationReplacement(context, '/SignUpView');
             },
             child: Text(
