@@ -6,7 +6,7 @@ final List<ProductModel> products = [
   ProductModel(
     name: 'Product 1',
     store: 'Store 1',
-    image: '${Assets.storeImage}',
+    image: Assets.storeImage,
     rating: 4.2,
   ),
   ProductModel(

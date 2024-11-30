@@ -46,7 +46,7 @@ class BottomContainer extends StatelessWidget {
           const SizedBox(height: 32),
           CustomButton(
             onTap: () {
-              // وظيفة الزر Login
+              CustomNavigationReplacement(context, '/HomeView');
             },
             text: 'Login',
             color: AppColors.tealGreen,
@@ -64,7 +64,7 @@ class BottomContainer extends StatelessWidget {
           const SizedBox(height: 12),
           CustomButton(
             onTap: () {
-              // وظيفة الزر Create an Account
+              CustomNavigationReplacement(context, '/SignUpView');
             },
             text: 'Create an Account',
             color: AppColors.tealGreen,

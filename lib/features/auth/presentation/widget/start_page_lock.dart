@@ -3,6 +3,8 @@ import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/material.dart';
 
 class StartPageLock extends StatelessWidget {
+  const StartPageLock({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

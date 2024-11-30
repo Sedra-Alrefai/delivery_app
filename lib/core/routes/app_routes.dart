@@ -11,7 +11,7 @@ import 'package:delivery_app/features/splash/presentation/view/splash_view.dart'
 import 'package:delivery_app/features/user/user_view.dart';
 import 'package:go_router/go_router.dart';
 
-final GoRouter router = GoRouter(initialLocation: '/HomeView', routes: [
+final GoRouter router = GoRouter(routes: [
   GoRoute(
     path: "/",
     builder: (context, state) => const SplashView(),

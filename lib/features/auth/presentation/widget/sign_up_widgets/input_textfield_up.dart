@@ -2,7 +2,7 @@ import 'package:delivery_app/features/auth/presentation/widget/Custom_text_field
 import 'package:flutter/material.dart';
 
 class InputFieldsSection extends StatelessWidget {
-  const InputFieldsSection({Key? key}) : super(key: key);
+  const InputFieldsSection({super.key});
 
   @override
   Widget build(BuildContext context) {

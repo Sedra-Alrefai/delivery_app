@@ -3,7 +3,7 @@ import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/material.dart';
 
 class SignInRedirect extends StatelessWidget {
-  const SignInRedirect({Key? key}) : super(key: key);
+  const SignInRedirect({super.key});
 
   @override
   Widget build(BuildContext context) {
