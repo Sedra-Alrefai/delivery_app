@@ -1,6 +1,4 @@
-import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/widget/cusstom_text_field.dart';
-
 import 'package:flutter/material.dart';
 
 class EmailAndPasswordFields extends StatelessWidget {

@@ -18,7 +18,7 @@ void main() {
 
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
-//   setupServiceLocator();
+//setupServiceLocator();
 //   await getIt<CashHelper>().init();
 //   return runApp(DeliveryApp());
 // >>>>>>> origin/sedra
@@ -31,7 +31,7 @@ class DeliveryApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/HomeView',
+      initialRoute: '/',
       routes: {
         '/HomeView': (context) => const HomeView(),
         '/MarketsView': (context) => const MarketsView(),

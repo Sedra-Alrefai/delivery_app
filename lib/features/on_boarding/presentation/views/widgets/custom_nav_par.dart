@@ -16,7 +16,7 @@ class CustomNavBar extends StatelessWidget {
           onTap: onTap,
           child: Text(
             AppString.skip,
-            style: CustomTextStyle.Parkinsans500Style12,
+            style: CustomTextStyle.parkinsans400Style12,
           ),
         ),
       ),

@@ -1,11 +1,7 @@
-import 'package:delivery_app/core/utils/app_assets.dart';
-import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/utils/app_text_Style.dart';
-import 'package:delivery_app/core/widget/Custom_button.dart';
 import 'package:delivery_app/features/on_boarding/data/models/on_boarding_models.dart';
 import 'package:delivery_app/features/on_boarding/presentation/views/widgets/custom_smooth_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class onBoardingWidgetBody extends StatelessWidget {
   onBoardingWidgetBody(

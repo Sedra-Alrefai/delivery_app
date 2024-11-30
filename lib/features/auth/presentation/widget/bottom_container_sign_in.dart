@@ -3,7 +3,6 @@ import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/widget/Custom_button.dart';
 import 'package:delivery_app/features/auth/presentation/view/forget_password.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class BottomContainer extends StatelessWidget {
   const BottomContainer();

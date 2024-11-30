@@ -18,7 +18,6 @@ class SignInView extends StatelessWidget {
             SizedBox(height: 100),
             EmailAndPasswordFields(),
             SizedBox(height: 65),
-            // جعل الـ Container يأخذ باقي الشاشة
             Expanded(
               child: BottomContainer(),
             ),
