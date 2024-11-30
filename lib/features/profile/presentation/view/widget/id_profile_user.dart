@@ -41,12 +41,12 @@ class IdProfileUser extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(userName,
-                          style: CustomTextStyle.Parkinsans500Style24.copyWith(
-                              fontSize: 19)),
+                          style: CustomTextStyle.parkinsans500Style24
+                              .copyWith(fontSize: 19)),
                       const SizedBox(height: 4),
                       Text(subTitle,
-                          style: CustomTextStyle.Parkinsans300Style16.copyWith(
-                              color: Colors.grey, fontSize: 14)),
+                          style: CustomTextStyle.parkinsans300Style16
+                              .copyWith(color: Colors.grey, fontSize: 14)),
                     ],
                   ),
                 ),

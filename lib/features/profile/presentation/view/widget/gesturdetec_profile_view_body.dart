@@ -22,11 +22,11 @@ class GestureDetecProfileViewBody extends StatelessWidget {
         child: ListTile(
             leading: iconc,
             title: Text(title,
-                style: CustomTextStyle.Parkinsans400Style12.copyWith(
-                    fontWeight: FontWeight.bold)),
+                style: CustomTextStyle.parkinsans400Style12
+                    .copyWith(fontWeight: FontWeight.bold)),
             subtitle: Text(subTitle,
-                style: CustomTextStyle.Parkinsans400Style12.copyWith(
-                    fontSize: 13, color: Colors.grey)),
+                style: CustomTextStyle.parkinsans400Style12
+                    .copyWith(fontSize: 13, color: Colors.grey)),
             onTap: onTap),
       ),
     );

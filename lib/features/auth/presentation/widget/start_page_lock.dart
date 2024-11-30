@@ -15,19 +15,19 @@ class StartPageLock extends StatelessWidget {
             Text(
               "Forgot",
               textAlign: TextAlign.center,
-              style: CustomTextStyle.Parkinsans600Style28.copyWith(
-                  fontSize: 50, color: AppColors.darkTealBlue),
+              style: CustomTextStyle.parkinsans600Style28
+                  .copyWith(fontSize: 50, color: AppColors.darkTealBlue),
             ),
             Text(
               "Password?",
               textAlign: TextAlign.center,
-              style: CustomTextStyle.Parkinsans600Style28.copyWith(
-                  fontSize: 25, color: AppColors.darkTealBlue),
+              style: CustomTextStyle.parkinsans600Style28
+                  .copyWith(fontSize: 25, color: AppColors.darkTealBlue),
             ),
             const SizedBox(height: 10),
             Text("No worries, we’ll send you\nreset instructions",
                 textAlign: TextAlign.center,
-                style: CustomTextStyle.Parkinsans400Style12.copyWith(
+                style: CustomTextStyle.parkinsans400Style12.copyWith(
                   color: Colors.grey,
                 )),
           ],

@@ -43,14 +43,14 @@ class ProductCard extends StatelessWidget {
             // النصوص
             Text(
               name,
-              style: CustomTextStyle.Parkinsans300Style16,
+              style: CustomTextStyle.parkinsans300Style16,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 2),
             Text(
               store,
-              style: CustomTextStyle.Parkinsans400StyleG15,
+              style: CustomTextStyle.parkinsans400StyleG15,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),

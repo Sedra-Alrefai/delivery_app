@@ -64,11 +64,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
             children: [
               Text(
                 AppString.appName,
-                style: CustomTextStyle.Parkinsans600Style28,
+                style: CustomTextStyle.parkinsans600Style28,
               ),
               Text(
                 'DELIVERY MAN',
-                style: CustomTextStyle.Parkinsans300Style16,
+                style: CustomTextStyle.parkinsans300Style16,
                 textAlign: TextAlign.center,
               ),
             ],

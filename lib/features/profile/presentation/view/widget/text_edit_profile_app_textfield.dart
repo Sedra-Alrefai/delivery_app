@@ -12,8 +12,8 @@ class TextEditProfileAppTextfield extends StatelessWidget {
       padding: EdgeInsets.only(left: 25, right: 15, top: topPadding),
       child: Text(
         title,
-        style: CustomTextStyle.Parkinsans300Style16.copyWith(
-            fontWeight: FontWeight.bold, fontSize: 16),
+        style: CustomTextStyle.parkinsans300Style16
+            .copyWith(fontWeight: FontWeight.bold, fontSize: 16),
       ),
     );
   }

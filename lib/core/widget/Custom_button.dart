@@ -21,8 +21,8 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: CustomTextStyle.Parkinsans300Style16.copyWith(
-                color: Colors.white),
+            style: CustomTextStyle.parkinsans300Style16
+                .copyWith(color: Colors.white),
           ),
         ),
       ),

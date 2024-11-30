@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           label: Text(
             label,
-            style: CustomTextStyle.Parkinsans300Style16.copyWith(
+            style: CustomTextStyle.parkinsans300Style16.copyWith(
               color: labelColor,
               fontSize: 12,
             ),

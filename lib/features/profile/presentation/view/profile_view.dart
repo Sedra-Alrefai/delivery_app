@@ -37,8 +37,8 @@ class profileView extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
                 "General",
-                style: CustomTextStyle.Parkinsans400Style12.copyWith(
-                    fontSize: 15, fontWeight: FontWeight.bold),
+                style: CustomTextStyle.parkinsans400Style12
+                    .copyWith(fontSize: 15, fontWeight: FontWeight.bold),
               ),
             ),
             ProfileViewBody(),

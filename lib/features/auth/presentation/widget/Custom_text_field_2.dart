@@ -26,7 +26,7 @@ class CustomTextField2 extends StatelessWidget {
           label: label != null
               ? Text(
                   label!,
-                  style: CustomTextStyle.Parkinsans300Style16.copyWith(
+                  style: CustomTextStyle.parkinsans300Style16.copyWith(
                     color: Colors.grey,
                     fontSize: 12,
                   ),
@@ -37,8 +37,8 @@ class CustomTextField2 extends StatelessWidget {
             child: icon,
           ),
           hintText: hintText,
-          hintStyle: CustomTextStyle.Parkinsans300Style16.copyWith(
-              color: Colors.grey, fontSize: 12),
+          hintStyle: CustomTextStyle.parkinsans300Style16
+              .copyWith(color: Colors.grey, fontSize: 12),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
           ),

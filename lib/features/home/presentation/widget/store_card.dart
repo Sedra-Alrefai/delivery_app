@@ -56,7 +56,7 @@ class StoreCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(name, style: CustomTextStyle.Parkinsans300Style16),
+                  Text(name, style: CustomTextStyle.parkinsans300Style16),
                   const SizedBox(height: 4),
                   Text(
                     location,

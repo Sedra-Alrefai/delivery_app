@@ -34,18 +34,18 @@ class SignUpView extends StatelessWidget {
                     children: [
                       Text(
                         "Let's",
-                        style: CustomTextStyle.Parkinsans500Style24.copyWith(
-                            color: AppColors.afwait, fontSize: 25),
+                        style: CustomTextStyle.parkinsans500Style24
+                            .copyWith(color: AppColors.afwait, fontSize: 25),
                       ),
                       Text(
                         "Create Your",
-                        style: CustomTextStyle.Parkinsans500Style24.copyWith(
-                            color: AppColors.afwait, fontSize: 25),
+                        style: CustomTextStyle.parkinsans500Style24
+                            .copyWith(color: AppColors.afwait, fontSize: 25),
                       ),
                       Text(
                         "Account",
-                        style: CustomTextStyle.Parkinsans500Style24.copyWith(
-                            color: AppColors.afwait, fontSize: 25),
+                        style: CustomTextStyle.parkinsans500Style24
+                            .copyWith(color: AppColors.afwait, fontSize: 25),
                       ),
                     ],
                   ),
@@ -109,8 +109,8 @@ class SignUpView extends StatelessWidget {
                         activeColor: AppColors.tealGreen,
                       ),
                       Text("I agree to the Terms & Privacy",
-                          style: CustomTextStyle.Parkinsans300Style16.copyWith(
-                              fontSize: 13)),
+                          style: CustomTextStyle.parkinsans300Style16
+                              .copyWith(fontSize: 13)),
                     ],
                   ),
                   SizedBox(height: 80),
@@ -128,7 +128,7 @@ class SignUpView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Have an account? ",
-                    style: CustomTextStyle.Parkinsans300Style16.copyWith(
+                    style: CustomTextStyle.parkinsans300Style16.copyWith(
                         color: Colors.grey,
                         fontSize: 15,
                         fontWeight: FontWeight.bold)),
@@ -137,8 +137,8 @@ class SignUpView extends StatelessWidget {
                     CustomNavigationReplacement(context, '/SignInView');
                   },
                   child: Text("SIGN IN ",
-                      style: CustomTextStyle.Parkinsans300Style16.copyWith(
-                          fontSize: 15, fontWeight: FontWeight.bold)),
+                      style: CustomTextStyle.parkinsans300Style16
+                          .copyWith(fontSize: 15, fontWeight: FontWeight.bold)),
                 ),
               ],
             )

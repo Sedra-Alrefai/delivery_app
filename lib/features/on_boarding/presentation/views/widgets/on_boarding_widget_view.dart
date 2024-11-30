@@ -45,7 +45,7 @@ class onBoardingWidgetBody extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   onBoardingData[index].title,
-                  style: CustomTextStyle.Parkinsans500Style24,
+                  style: CustomTextStyle.parkinsans500Style24,
                   textAlign: TextAlign.center,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,

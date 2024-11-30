@@ -35,7 +35,7 @@ class GetButtons extends StatelessWidget {
             },
             child: Text(
               AppString.newAccount,
-              style: CustomTextStyle.Parkinsans300Style16.copyWith(
+              style: CustomTextStyle.parkinsans300Style16.copyWith(
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
                   color: Colors.grey),

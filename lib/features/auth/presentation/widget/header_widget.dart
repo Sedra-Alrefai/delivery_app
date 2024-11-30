@@ -12,8 +12,8 @@ class HeaderWidget extends StatelessWidget {
           //Image.asset('assets/images/delivery man logo.jpeg.png'),
           Text(
         'Delivery Man',
-        style: CustomTextStyle.Parkinsans600Style28.copyWith(
-            color: AppColors.tealGreen, fontSize: 40),
+        style: CustomTextStyle.parkinsans600Style28
+            .copyWith(color: AppColors.tealGreen, fontSize: 40),
       ),
     );
   }

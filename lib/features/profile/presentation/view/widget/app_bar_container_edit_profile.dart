@@ -33,8 +33,8 @@ class AppBarContainerEditProfile extends StatelessWidget {
         padding: const EdgeInsets.only(top: 24, left: 70),
         child: Text(
           title,
-          style: CustomTextStyle.Parkinsans500Style24.copyWith(
-              color: AppColors.afwait, fontSize: 30),
+          style: CustomTextStyle.parkinsans500Style24
+              .copyWith(color: AppColors.afwait, fontSize: 30),
         ),
       )
     ]);
