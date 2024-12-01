@@ -1,40 +1,40 @@
-import 'package:delivery_app/core/widget/cusstom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:delivery_app/core/widget/cusstom_text_field.dart';
+import 'package:delivery_app/features/auth/presentation/view_model/cubits/cubit/user_cubit.dart';
 
 class EmailAndPasswordFields extends StatelessWidget {
-  const EmailAndPasswordFields();
+  const EmailAndPasswordFields({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final cubit = context.read<UserCubit>();
+
+    return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 50),
           child: CustomTextField(
+            controller: cubit.signInEmail,
             label: 'Email or Phone',
             labelColor: Colors.grey,
             hintText: 'Email or Phone',
             textColor: Colors.grey,
-            icon: Icon(
-              Icons.person,
-              color: Colors.grey,
-            ),
-            color: Color(0xff1A2E35),
+            icon: const Icon(Icons.person, color: Colors.grey),
+            color: const Color(0xff1A2E35),
           ),
         ),
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 50),
           child: CustomTextField(
+            controller: cubit.signInPassword,
+            label: 'Password',
             labelColor: Colors.grey,
-            label: 'Passowrd',
             hintText: 'Password',
             textColor: Colors.grey,
-            icon: Icon(
-              Icons.password,
-              color: Colors.grey,
-            ),
-            color: Color(0xff1A2E35),
+            icon: const Icon(Icons.lock, color: Colors.grey),
+            color: const Color(0xff1A2E35),
           ),
         ),
       ],

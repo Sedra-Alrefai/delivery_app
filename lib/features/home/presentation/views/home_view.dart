@@ -11,7 +11,6 @@ import 'package:delivery_app/features/home/presentation/widget/header_search_car
 import 'package:delivery_app/features/home/presentation/widget/product_card.dart';
 import 'package:delivery_app/features/markets/presentation/views/markets_view.dart';
 import 'package:delivery_app/features/profile/presentation/view/profile_view.dart';
-import 'package:delivery_app/features/user/user_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {

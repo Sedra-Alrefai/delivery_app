@@ -1,17 +1,15 @@
 import 'package:delivery_app/core/function/navigation.dart';
 import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/widget/Custom_button.dart';
-import 'package:delivery_app/features/auth/presentation/view/forget_password.dart';
+import 'package:delivery_app/features/auth/presentation/view_model/cubits/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomContainer extends StatelessWidget {
-  const BottomContainer();
+  const BottomContainer({super.key});
 
   void navigateToForgotPassword(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ForgetPasswordView()),
-    );
+    CustomNavigation(context, '/ForgetPasswordView');
   }
 
   @override
@@ -30,7 +28,7 @@ class BottomContainer extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              CustomNavigationReplacement(context, '/ForgetPasswordView');
+              navigateToForgotPassword(context);
             },
             child: const Text(
               'Forgot Password?',
@@ -46,7 +44,7 @@ class BottomContainer extends StatelessWidget {
           const SizedBox(height: 32),
           CustomButton(
             onTap: () {
-              CustomNavigationReplacement(context, '/HomeView');
+              context.read<UserCubit>().signIn();
             },
             text: 'Login',
             color: AppColors.tealGreen,
