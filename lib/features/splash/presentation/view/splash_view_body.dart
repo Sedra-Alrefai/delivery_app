@@ -64,7 +64,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
           opacity: fadingAnimation!,
           child: Column(
             children: [
-              Text(
+              const Text(
                 AppString.appName,
                 style: CustomTextStyle.parkinsans600Style28,
               ),

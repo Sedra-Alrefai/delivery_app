@@ -26,7 +26,11 @@ class DeliveryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.afwait),
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.afwait,
+        useMaterial3: true,
+        fontFamily: 'Parkinsans', // أو أي خط ت
+      ),
       debugShowCheckedModeBanner: false,
       routerConfig: router,
     );

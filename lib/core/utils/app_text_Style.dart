@@ -14,7 +14,6 @@ abstract class CustomTextStyle {
     fontWeight: FontWeight.w400,
     color: AppColors.black,
   );
-
   static const parkinsans500Style24 = TextStyle(
     fontFamily: 'Parkinsans',
     fontSize: 20,

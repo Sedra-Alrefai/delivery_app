@@ -22,7 +22,7 @@ final GoRouter router = GoRouter(routes: [
   ),
   GoRoute(
     path: "/SignUpView",
-    builder: (context, state) => SignUpView(),
+    builder: (context, state) => const SignUpView(),
   ),
   GoRoute(
     path: "/SignInView",
@@ -46,7 +46,7 @@ final GoRouter router = GoRouter(routes: [
   ),
   GoRoute(
     path: "/ForgetPasswordView",
-    builder: (context, state) => ForgetPasswordView(),
+    builder: (context, state) => const ForgetPasswordView(),
   ),
   GoRoute(
     path: "/profileView",
