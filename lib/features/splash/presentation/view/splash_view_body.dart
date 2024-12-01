@@ -4,6 +4,8 @@ import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatefulWidget {
+  const SplashViewBody({super.key});
+
   @override
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
@@ -15,10 +17,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     animationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 2000));
+        vsync: this, duration: const Duration(milliseconds: 2000));
     fadingAnimation =
         Tween<double>(begin: .2, end: 1).animate(animationController!)
           ..addListener(() {
@@ -31,6 +32,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     animationController?.forward();
   }
 
+  @override
   void dispose() {
     animationController?.dispose();
     super.dispose();

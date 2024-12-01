@@ -4,7 +4,7 @@ import 'package:delivery_app/features/favorite/favorite_view.dart';
 import 'package:delivery_app/features/home/presentation/models/category_model.dart';
 import 'package:delivery_app/features/home/presentation/models/store_model.dart';
 import 'package:delivery_app/features/home/presentation/views_model/product_data.dart';
-import 'package:delivery_app/features/home/presentation/widget/Custom_bottom_navigator_bar.dart';
+import 'package:delivery_app/features/home/presentation/widget/custom_bottom_navigator_bar.dart';
 import 'package:delivery_app/features/home/presentation/widget/custom_categories_list.dart';
 import 'package:delivery_app/features/home/presentation/widget/custom_store_list.dart';
 import 'package:delivery_app/features/home/presentation/widget/header_search_cart.dart';
@@ -35,7 +35,7 @@ class HomeView extends StatelessWidget {
           break;
         case 3:
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (_) => const profileView()));
+              context, MaterialPageRoute(builder: (_) => const ProfileView()));
           break;
       }
     }

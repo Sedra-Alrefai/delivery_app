@@ -1,5 +1,5 @@
 import 'package:delivery_app/core/utils/app_colors.dart';
-import 'package:delivery_app/core/widget/Custom_button.dart';
+import 'package:delivery_app/core/widget/custom_button.dart';
 import 'package:delivery_app/features/profile/presentation/view/widget/field_edit_prfile_body.dart';
 import 'package:delivery_app/features/profile/presentation/view/widget/text_edit_profile_app_textfield.dart';
 import 'package:flutter/material.dart';

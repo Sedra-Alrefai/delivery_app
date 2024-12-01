@@ -14,7 +14,7 @@ class IdProfileUser extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Container(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -23,7 +23,7 @@ class IdProfileUser extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.2),
                   spreadRadius: 2,
                   blurRadius: 5,
-                  offset: Offset(0, 3),
+                  offset: const Offset(0, 3),
                 ),
               ],
             ),

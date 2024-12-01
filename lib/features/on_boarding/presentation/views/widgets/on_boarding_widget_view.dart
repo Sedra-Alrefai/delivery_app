@@ -3,8 +3,8 @@ import 'package:delivery_app/features/on_boarding/data/models/on_boarding_models
 import 'package:delivery_app/features/on_boarding/presentation/views/widgets/custom_smooth_indicator.dart';
 import 'package:flutter/material.dart';
 
-class onBoardingWidgetBody extends StatelessWidget {
-  onBoardingWidgetBody(
+class OnBoardingWidgetBody extends StatelessWidget {
+  const OnBoardingWidgetBody(
       {super.key, required this.controller, this.onPageChanged});
   final PageController controller;
   final Function(int)? onPageChanged;
@@ -38,7 +38,7 @@ class onBoardingWidgetBody extends StatelessWidget {
                 height: 19,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   onBoardingData[index].title,
                   style: CustomTextStyle.parkinsans500Style24,

@@ -1,7 +1,7 @@
-import 'package:delivery_app/core/api/api_conSumer.dart';
-import 'package:delivery_app/core/api/api_interCeptors.dart';
+import 'package:delivery_app/core/api/api_consumer.dart';
+import 'package:delivery_app/core/api/api_interceptors.dart';
 import 'package:delivery_app/core/api/end_points.dart';
-import 'package:delivery_app/core/errors/exCeptions.dart';
+import 'package:delivery_app/core/errors/exceptions.dart';
 import 'package:dio/dio.dart';
 
 class DioConsumer extends ApiConsumer {

@@ -1,16 +1,14 @@
 abstract class AppString {
-  static final appName = "DELIVERY ";
-  static final next = "Next";
-  static final skip = "skip";
-  static final welcom = "Welcome!";
-  static final welcomeBack = "Welcome Back !";
-  static final sinup = "Sin Up";
-  static final sinIn = "  Sin In";
-  static final newAccount = "Create Account";
-  static final loginNow = "Login Now";
-  static final alreadyAccount = "Already have an Account ? ";
-
-  static final iHaveAgreeToOur = "I have agree to our ";
-
-  static final TermsAndConwidition = "Terms and Condition";
+  static const appName = "DELIVERY ";
+  static const next = "Next";
+  static const skip = "skip";
+  static const welcom = "Welcome!";
+  static const welcomeBack = "Welcome Back !";
+  static const sinup = "Sin Up";
+  static const sinIn = "  Sin In";
+  static const newAccount = "Create Account";
+  static const loginNow = "Login Now";
+  static const alreadyAccount = "Already have an Account ? ";
+  static const iHaveAgreeToOur = "I have agree to our ";
+  static const termsAndConwidition = "Terms and Condition";
 }

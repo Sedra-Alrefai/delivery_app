@@ -2,7 +2,7 @@ import 'package:delivery_app/core/function/navigation.dart';
 import 'package:delivery_app/core/utils/app_String.dart';
 import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/utils/app_text_Style.dart';
-import 'package:delivery_app/core/widget/Custom_button.dart';
+import 'package:delivery_app/core/widget/custom_button.dart';
 import 'package:delivery_app/features/on_boarding/data/models/on_boarding_models.dart';
 import 'package:delivery_app/features/on_boarding/presentation/views/functions/on_boarding.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
 class GetButtons extends StatelessWidget {
   final int currentIndex;
 
-  GetButtons({super.key, required this.currentIndex, required this.controller});
+  const GetButtons(
+      {super.key, required this.currentIndex, required this.controller});
   final PageController controller;
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class GetButtons extends StatelessWidget {
             color: AppColors.darkTealBlue,
             onTap: () {
               controller.nextPage(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   curve: Curves.bounceIn);
             },
             text: 'NEXT',

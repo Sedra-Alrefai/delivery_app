@@ -1,5 +1,5 @@
 import 'package:delivery_app/features/home/presentation/views/home_view.dart';
-import 'package:delivery_app/features/home/presentation/widget/Custom_bottom_navigator_bar.dart';
+import 'package:delivery_app/features/home/presentation/widget/custom_bottom_navigator_bar.dart';
 import 'package:delivery_app/features/markets/presentation/views/markets_view.dart';
 import 'package:delivery_app/features/profile/presentation/view/profile_view.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class FavoriteView extends StatelessWidget {
           break;
         case 3:
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (_) => const profileView()));
+              context, MaterialPageRoute(builder: (_) => const ProfileView()));
           break;
       }
     }
@@ -34,7 +34,7 @@ class FavoriteView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text(' favorite View'),
+      body: const Text(' favorite View'),
       bottomNavigationBar: CustomBottomNavigatorBar(
         currentIndex: 2,
         onTap: (index) {

@@ -1,6 +1,6 @@
 class EndPoint {
-  static String baseUrl = "http://127.0.0.1:8000/api/login";
-  static String signIn = "";
+  static String baseUrl = "http://127.0.0.1:8000/api/";
+  static String signIn = "login";
 }
 
 class ApiKey {

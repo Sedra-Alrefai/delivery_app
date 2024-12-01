@@ -24,7 +24,7 @@ class AppBarContainerEditProfile extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.only(left: 20, top: 30),
         child: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           color: AppColors.afwait,
           onPressed: onPressed,
         ),

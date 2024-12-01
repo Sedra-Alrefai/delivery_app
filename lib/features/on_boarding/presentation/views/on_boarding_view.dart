@@ -33,7 +33,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   CustomNavigationReplacement(context, '/SignUpView');
                 },
               ),
-              onBoardingWidgetBody(
+              OnBoardingWidgetBody(
                 onPageChanged: (index) {
                   setState(() {
                     currentIndex = index;

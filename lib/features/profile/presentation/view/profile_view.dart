@@ -5,8 +5,8 @@ import 'package:delivery_app/features/profile/presentation/view/widget/id_profil
 import 'package:delivery_app/features/profile/presentation/view/widget/profile_view_body.dart';
 import 'package:flutter/material.dart';
 
-class profileView extends StatelessWidget {
-  const profileView({super.key});
+class ProfileView extends StatelessWidget {
+  const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class profileView extends StatelessWidget {
                     .copyWith(fontSize: 15, fontWeight: FontWeight.bold),
               ),
             ),
-            ProfileViewBody(),
+            const ProfileViewBody(),
           ],
         ),
       ),

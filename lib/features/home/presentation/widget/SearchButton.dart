@@ -1,13 +1,13 @@
 import 'package:delivery_app/core/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SearchButton extends StatefulWidget {
   final Function(String)? onSearch;
 
-  const SearchButton({Key? key, this.onSearch}) : super(key: key);
+  const SearchButton({super.key, this.onSearch});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SearchButtonState createState() => _SearchButtonState();
 }
 

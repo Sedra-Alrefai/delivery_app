@@ -3,9 +3,11 @@ import 'package:delivery_app/features/auth/presentation/widget/start_page_lock.d
 import 'package:flutter/material.dart';
 
 class ForgetPasswordView extends StatelessWidget {
+  const ForgetPasswordView({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -14,7 +16,7 @@ class ForgetPasswordView extends StatelessWidget {
                 StartPageLock(),
               ],
             ),
-            const SizedBox(height: 50),
+            SizedBox(height: 50),
             ContainertoLockView(),
           ],
         ),

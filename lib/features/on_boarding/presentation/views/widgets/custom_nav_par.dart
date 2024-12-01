@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CustomNavBar extends StatelessWidget {
   final VoidCallback onTap;
 
-  CustomNavBar({super.key, required this.onTap});
+  const CustomNavBar({super.key, required this.onTap});
   @override
   Widget build(BuildContext context) {
     return Padding(

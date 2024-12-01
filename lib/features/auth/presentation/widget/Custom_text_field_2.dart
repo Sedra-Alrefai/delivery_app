@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 class CustomTextField2 extends StatelessWidget {
   const CustomTextField2({
-    Key? key,
+    super.key,
     this.hintText,
     this.icon,
     required this.color,
     required this.textColor,
     this.label,
-  }) : super(key: key);
+  });
 
   final String? hintText;
   final Icon? icon;
@@ -19,7 +19,7 @@ class CustomTextField2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 60,
       child: TextField(
         decoration: InputDecoration(

@@ -7,6 +7,8 @@ import 'package:delivery_app/features/auth/presentation/widget/bottom_container_
 import 'package:delivery_app/features/auth/presentation/widget/header_widget.dart';
 
 class SignInView extends StatelessWidget {
+  const SignInView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

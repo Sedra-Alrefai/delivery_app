@@ -1,6 +1,6 @@
 import 'package:delivery_app/features/favorite/favorite_view.dart';
 import 'package:delivery_app/features/home/presentation/views/home_view.dart';
-import 'package:delivery_app/features/home/presentation/widget/Custom_bottom_navigator_bar.dart';
+import 'package:delivery_app/features/home/presentation/widget/custom_bottom_navigator_bar.dart';
 import 'package:delivery_app/features/markets/presentation/views/markets_view.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:delivery_app/features/auth/presentation/widget/Custom_text_field_2.dart';
+import 'package:delivery_app/features/auth/presentation/widget/custom_text_field_2.dart';
 import 'package:flutter/material.dart';
 
 class InputFieldsSection extends StatelessWidget {

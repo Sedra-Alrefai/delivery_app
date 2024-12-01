@@ -1,6 +1,6 @@
 import 'package:delivery_app/core/function/navigation.dart';
 import 'package:delivery_app/core/utils/app_colors.dart';
-import 'package:delivery_app/core/widget/Custom_button.dart';
+import 'package:delivery_app/core/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class SignUpButton extends StatelessWidget {

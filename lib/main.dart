@@ -15,12 +15,14 @@ void main() async {
   return runApp(
     BlocProvider(
       create: (context) => UserCubit(DioConsumer(dio: Dio())),
-      child: DeliveryApp(),
+      child: const DeliveryApp(),
     ),
   );
 }
 
 class DeliveryApp extends StatelessWidget {
+  const DeliveryApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(

@@ -3,7 +3,7 @@ import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/widgets.dart';
 
 class HeaderWidget extends StatelessWidget {
-  const HeaderWidget();
+  const HeaderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-import 'package:delivery_app/features/auth/presentation/widget/Custom_text_field_2.dart';
+import 'package:delivery_app/features/auth/presentation/widget/custom_text_field_2.dart';
 import 'package:flutter/material.dart';
 
 class FieldEditPrfileBody extends StatelessWidget {
@@ -13,7 +13,7 @@ class FieldEditPrfileBody extends StatelessWidget {
         padding: EdgeInsets.only(left: 40, right: 40, top: topPadding),
         child: CustomTextField2(
           hintText: title,
-          color: Color(0xffFFFFFF),
+          color: const Color(0xffFFFFFF),
           textColor: Colors.grey,
         ));
   }

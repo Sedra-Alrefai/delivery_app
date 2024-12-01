@@ -26,7 +26,7 @@ final GoRouter router = GoRouter(routes: [
   ),
   GoRoute(
     path: "/SignInView",
-    builder: (context, state) => SignInView(),
+    builder: (context, state) => const SignInView(),
   ),
   GoRoute(
     path: "/HomeView",
@@ -50,7 +50,7 @@ final GoRouter router = GoRouter(routes: [
   ),
   GoRoute(
     path: "/profileView",
-    builder: (context, state) => const profileView(),
+    builder: (context, state) => const ProfileView(),
   ),
   GoRoute(
     path: "/EditProfileView",
