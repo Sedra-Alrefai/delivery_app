@@ -11,7 +11,11 @@ import 'package:delivery_app/features/profile/presentation/view/profile_view.dar
 import 'package:delivery_app/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
+<<<<<<< HEAD
 final GoRouter router = GoRouter(initialLocation: '/', routes: [
+=======
+final GoRouter router = GoRouter(routes: [
+>>>>>>> origin/maram
   GoRoute(
     path: "/",
     builder: (context, state) => const SplashView(),
