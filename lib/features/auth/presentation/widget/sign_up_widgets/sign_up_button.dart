@@ -12,7 +12,7 @@ class SignUpButton extends StatelessWidget {
       text: 'Sign Up',
       color: AppColors.darkTealBlue,
       onTap: () {
-        CustomNavigationReplacement(context, "/profileView");
+        CustomNavigationReplacement(context, "/MarketsPage");
       },
     );
   }

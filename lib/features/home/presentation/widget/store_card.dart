@@ -47,7 +47,6 @@ class StoreCard extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          // النصوص والتقييم
           Expanded(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),

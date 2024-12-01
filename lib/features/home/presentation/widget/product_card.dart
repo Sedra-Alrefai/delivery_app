@@ -10,12 +10,12 @@ class ProductCard extends StatelessWidget {
   final double rating;
 
   const ProductCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.store,
     required this.image,
     required this.rating,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +29,17 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // الصورة
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
                 image,
-                height: 120, // ارتفاع الصورة
-                width: double.infinity, // عرض الصورة حسب الكارد
-                fit: BoxFit.cover, // لضمان ملاءمة الصورة
+                height: 120,
+                width: double.infinity,
+                fit: BoxFit.cover,
               ),
             ),
             const SizedBox(height: 8),
-            // النصوص
+
             Text(
               name,
               style: CustomTextStyle.parkinsans300Style16,
