@@ -2,21 +2,21 @@ import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField2 extends StatelessWidget {
-  const CustomTextField2({
-    super.key,
-    this.hintText,
-    this.icon,
-    required this.color,
-    required this.textColor,
-    this.label,
-  });
+  const CustomTextField2(
+      {super.key,
+      this.hintText,
+      this.icon,
+      required this.color,
+      required this.textColor,
+      this.label,
+      this.controller});
 
   final String? hintText;
   final Icon? icon;
   final Color color;
   final Color textColor;
   final String? label;
-
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

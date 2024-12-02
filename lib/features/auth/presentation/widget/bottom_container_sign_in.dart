@@ -44,7 +44,8 @@ class BottomContainer extends StatelessWidget {
           const SizedBox(height: 32),
           CustomButton(
             onTap: () {
-              context.read<UserCubit>().signIn();
+              print("Login button pressed");
+              context.read<UserCubit>().testApi();
             },
             text: 'Login',
             color: AppColors.tealGreen,

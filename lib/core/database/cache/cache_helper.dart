@@ -48,13 +48,16 @@ class CashHelper {
   }
 
   // Put data in local database with a key
-  Future<dynamic> put({required String key, required dynamic value}) async {
+  Future<bool> put({required String key, required dynamic value}) async {
     if (value is String) {
       return await sharedPreferences.setString(key, value);
     } else if (value is bool) {
       return await sharedPreferences.setBool(key, value);
-    } else {
+    } else if (value is int) {
+      return await sharedPreferences.setInt(key, value);
+    } else if (value is double) {
       return await sharedPreferences.setDouble(key, value);
     }
+    throw Exception("Unsupported type");
   }
 }

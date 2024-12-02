@@ -2,27 +2,38 @@ import 'package:delivery_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField(
-      {super.key,
-      required this.hintText,
-      required this.icon,
-      required this.color,
-      required this.textColor,
-      required this.label,
-      required this.labelColor,
-      this.controller});
+  const CustomTextField({
+    super.key,
+    required this.hintText,
+    required this.icon,
+    required this.color,
+    required this.textColor,
+    required this.label,
+    required this.labelColor,
+    this.controller,
+    required this.onChanged,
+    required this.obscureText,
+    required String? Function(dynamic value) validator,
+  });
+
   final String hintText;
   final Icon icon;
   final Color color;
   final Color textColor;
   final String label;
   final Color labelColor;
-  final TextEditingController? controller;
+  final TextEditingController? controller; // يجب استخدامه في TextField
+  final Function(String) onChanged;
+  final bool obscureText;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 70,
       child: TextField(
+        controller: controller, // أضف هذا السطر
+        onChanged: onChanged, // يضمن استدعاء onChanged عند تعديل النص
+        obscureText: obscureText,
         decoration: InputDecoration(
           label: Text(
             label,

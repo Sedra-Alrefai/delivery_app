@@ -1,11 +1,14 @@
+import 'package:delivery_app/features/auth/presentation/view_model/cubits/cubit/user_cubit.dart';
 import 'package:delivery_app/features/auth/presentation/widget/custom_text_field_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InputFieldsSection extends StatelessWidget {
   const InputFieldsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<UserCubit>();
     return const Column(
       children: [
         CustomTextField2(
