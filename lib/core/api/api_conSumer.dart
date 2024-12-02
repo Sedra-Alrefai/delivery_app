@@ -11,7 +11,7 @@ abstract class ApiConsumer {
     bool isFromData = false,
   });
   Future<dynamic> patch(
-    String path, {
+    String pathap, {
     Object? data,
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,

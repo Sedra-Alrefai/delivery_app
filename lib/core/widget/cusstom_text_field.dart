@@ -10,7 +10,8 @@ class CustomTextField extends StatelessWidget {
       required this.textColor,
       required this.label,
       required this.labelColor,
-      this.controller});
+      this.controller,
+      required Null Function(dynamic value) onChanged});
   final String hintText;
   final Icon icon;
   final Color color;

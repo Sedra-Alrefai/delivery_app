@@ -7,6 +7,8 @@ import 'package:delivery_app/features/auth/presentation/widget/bottom_container_
 import 'package:delivery_app/features/auth/presentation/widget/header_widget.dart';
 
 class SignInView extends StatelessWidget {
+  const SignInView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +19,6 @@ class SignInView extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Sign In Successful')),
             );
-            // التنقل إلى الشاشة الرئيسية بعد تسجيل الدخول بنجاح
-            // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomePage()));
           } else if (state is SignInFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errMessage)),
@@ -28,7 +28,7 @@ class SignInView extends StatelessWidget {
         builder: (context, state) {
           return Stack(
             children: [
-              const Column(
+            const  Column(
                 children: [
                   SizedBox(height: 150),
                   HeaderWidget(),
@@ -40,8 +40,7 @@ class SignInView extends StatelessWidget {
               ),
               if (state is SignInLoading)
                 Container(
-                  color: const Color(0xff1A2E35)
-                      .withOpacity(0.8), // خلفية نصف شفافة
+                  color: const Color(0xff1A2E35).withOpacity(0.8),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

@@ -22,6 +22,11 @@ class EmailAndPasswordFields extends StatelessWidget {
             textColor: Colors.grey,
             icon: const Icon(Icons.person, color: Colors.grey),
             color: const Color(0xff1A2E35),
+            onChanged: (value) {
+              // تحديث القيم في Cubit باستخدام القيمة المدخلة
+              cubit.updateEmail(
+                  value); // value هنا هي النص المدخل في الـ TextField
+            },
           ),
         ),
         const SizedBox(height: 24),
@@ -35,6 +40,11 @@ class EmailAndPasswordFields extends StatelessWidget {
             textColor: Colors.grey,
             icon: const Icon(Icons.lock, color: Colors.grey),
             color: const Color(0xff1A2E35),
+            onChanged: (value) {
+              // تحديث القيم في Cubit باستخدام القيمة المدخلة
+              cubit.updatePassword(
+                  value); // value هنا هي النص المدخل في الـ TextField
+            },
           ),
         ),
       ],

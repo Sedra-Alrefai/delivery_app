@@ -13,7 +13,7 @@ import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(routes: [
   GoRoute(
-    path: "/",
+    path: "/SplashView",
     builder: (context, state) => const SplashView(),
   ),
   GoRoute(
@@ -25,7 +25,7 @@ final GoRouter router = GoRouter(routes: [
     builder: (context, state) => SignUpView(),
   ),
   GoRoute(
-    path: "/SignInView",
+    path: "/",
     builder: (context, state) => SignInView(),
   ),
   GoRoute(

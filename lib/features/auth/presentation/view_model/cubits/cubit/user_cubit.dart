@@ -23,10 +23,18 @@ class UserCubit extends Cubit<UserState> {
   TextEditingController signUpPassword = TextEditingController();
   //Sign up confirm password
   TextEditingController confirmPassword = TextEditingController();
+  void updateEmail(String value) {
+    signInEmail.text = value;
+  }
+
+  void updatePassword(String value) {
+    signInPassword.text = value;
+  }
 
   SignInModel? user;
   signIn() async {
     try {
+      print('Email: ${signInEmail.text}, Password: ${signInPassword.text}');
       emit(SignInLoading());
       final response = await api.post(
         EndPoint.signIn,
@@ -35,6 +43,7 @@ class UserCubit extends Cubit<UserState> {
           ApiKey.password: signInPassword.text,
         },
       );
+      print(response.toString());
       user = SignInModel.fromJson(response);
       final decodedToken = JwtDecoder.decode(user!.token);
       CashHelper().saveData(key: ApiKey.token, value: user!.token);
