@@ -16,7 +16,7 @@ part 'user_state.dart';
 class UserCubit extends Cubit<UserState> {
   UserCubit(this.api) : super(UserInitial());
   final ApiConsumer api;
-
+//
   //Sign in Form key
   GlobalKey<FormState> signInFormKey = GlobalKey();
 
@@ -83,8 +83,8 @@ class UserCubit extends Cubit<UserState> {
       final response = await api.post(
         'http://127.0.0.1:8000/api/login',
         data: {
-          ApiKey.identifier: email, // استخدم القيمة المرسلة
-          ApiKey.password: password, // استخدم القيمة المرسلة
+          'identifier': email, // استخدم القيمة المرسلة
+          'password': password, // استخدم القيمة المرسلة
         },
       );
       print(response.toString());
@@ -94,6 +94,11 @@ class UserCubit extends Cubit<UserState> {
       if (JwtDecoder.isExpired(user!.token)) {
         throw Exception("Token is expired");
       }
+
+      //if user response == 200 {
+      //save token and message
+      //Get.to(homePage)
+      //}
 
       final decodedToken = JwtDecoder.decode(user!.token);
       await CashHelper().saveData(key: ApiKey.token, value: user!.token);

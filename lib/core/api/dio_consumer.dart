@@ -3,6 +3,7 @@ import 'package:delivery_app/core/api/api_interceptors.dart';
 import 'package:delivery_app/core/api/end_points.dart';
 import 'package:delivery_app/core/errors/exceptions.dart';
 import 'package:dio/dio.dart';
+import 'package:http/http.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
@@ -85,6 +86,11 @@ class DioConsumer extends ApiConsumer {
         path,
         data: isFromData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
+        options: Options(
+          headers: {
+            "Content-Type": "application/json",
+          },
+        ),
       );
       return response.data;
     } on DioException catch (e) {
