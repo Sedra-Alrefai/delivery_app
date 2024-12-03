@@ -7,8 +7,9 @@ class ApiInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers.addAll({
       'Accept': 'application/json',
-      'Content-Type': 'multipart/form-data',
-      'Accept-Language': 'en',
+      // 'Content-Type': 'multipart/form-data',
+      // 'Accept-Language': 'en',
+
       // 'User-Agent': 'PostmanRuntime/7.43.0',
     });
 

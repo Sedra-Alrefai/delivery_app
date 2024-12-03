@@ -81,9 +81,9 @@ class UserCubit extends Cubit<UserState> {
     try {
       emit(SignInLoading());
       final response = await api.post(
-        'http://10.0.2.2:8000/api/login',
+        'http://127.0.0.1:8000/api/login',
         data: {
-          ApiKey.email: email, // استخدم القيمة المرسلة
+          ApiKey.identifier: email, // استخدم القيمة المرسلة
           ApiKey.password: password, // استخدم القيمة المرسلة
         },
       );
