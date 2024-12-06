@@ -49,18 +49,6 @@ class _SignUpViewState extends State<SignUpView> {
       print('Password: $password');
       print('Phone Number: $phoneNumber');
 
-      // تحقق من أن الحقول غير فارغة
-      if (firstName.isEmpty ||
-          lastName.isEmpty ||
-          email.isEmpty ||
-          password.isEmpty ||
-          phoneNumber.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Please fill in all fields correctly')),
-        );
-        return;
-      }
-
       // إرسال البيانات عبر الـ Cubit
       context.read<UserCubit>().signUp(
             firstName: firstName,

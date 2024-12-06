@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:delivery_app/core/api/api_consumer.dart';
-import 'package:delivery_app/core/api/end_points.dart';
 import 'package:delivery_app/core/database/cache/cache_helper.dart';
 import 'package:delivery_app/core/errors/exceptions.dart';
 import 'package:delivery_app/features/auth/presentation/models/signin_model.dart';
@@ -37,13 +36,14 @@ class UserCubit extends Cubit<UserState> {
   TextEditingController confirmPassword = TextEditingController();
 
   SignInModel? user;
+  SignUpModel? signUpUser;
 
   signUp({
     required String firstName,
     required String lastName,
     required String email,
     required String password,
-    required String phoneNumber, // إضافة رقم الهاتف
+    required String phoneNumber,
   }) async {
     try {
       emit(SignUpLoading());
@@ -53,63 +53,55 @@ class UserCubit extends Cubit<UserState> {
         'http://192.168.1.6:8000/api/register',
         isFromData: true,
         data: {
-          ApiKey.name: firstName,
-          ApiKey.lastName: lastName,
-          ApiKey.email: email,
-          ApiKey.password: password,
-          ApiKey.phoneNumber: phoneNumber, // إرسال رقم الهاتف
+          "name": firstName,
+          "lastName": lastName,
+          "email": email,
+          "password": password,
+          "phoneNumber": phoneNumber,
         },
       );
 
-      final signUpModel = SignUpModel.fromJson(response);
+      print("Response Data: $response");
 
-      if (signUpModel.token == null || signUpModel.token!.isEmpty) {
-        throw Exception("Token is missing in the response");
+      signUpUser = SignUpModel.fromJson(response);
+
+      if (signUpUser?.token == null || signUpUser!.token!.isEmpty) {
+        throw Exception("Token is empty or null");
       }
 
-// تخزين التوكن
-      await CashHelper().saveData(key: 'token', value: signUpModel.token);
-      print("Token saved: ${signUpModel.token}");
+      final token = signUpUser!.token!;
+      await CashHelper().saveData(key: 'token', value: token);
+      print("Token saved: $token");
 
-      emit(SignUpSuccess(message: signUpModel.message));
+      emit(SignUpSuccess(message: signUpUser!.message));
+      final storedToken = CashHelper().getDataString(key: 'token');
+      print("Stored Token: $storedToken");
     } on ServerException catch (e) {
       emit(SignUpFailure(errMessage: e.errModel.errorMessage));
     } catch (e) {
       print("Error: $e");
-      emit(SignUpFailure(errMessage: "Unexpected error occurred"));
+      emit(SignUpFailure(
+          errMessage: "Unexpected error occurred. Please try again."));
     }
   }
-
-  // void updateEmail(String value) {
-  //   signInEmail.text = value;
-  // }
-
-  // void updatePassword(String value) {
-  //   signInPassword.text = value;
-  // }
 
   signIn({required String email, required String password}) async {
     try {
       emit(SignInLoading());
 
-      // إرسال طلب تسجيل الدخول
       final response = await api.post(
         'http://192.168.1.6:8000/api/login',
         data: {'identifier': email, 'password': password},
       );
 
-      // تحويل الاستجابة إلى نموذج SignInModel
       user = SignInModel.fromJson(response);
 
-      // تحقق من أن التوكن موجود وليس فارغًا
       if (user!.token.isEmpty) {
         throw Exception("Token is empty");
       }
 
-      // الحصول على التوكن الكامل بدون تقسيمه
       final token = user!.token;
 
-      // حفظ التوكن مباشرة دون تفسير
       await CashHelper().saveData(key: 'token', value: token);
       print("Token saved: $token");
 
