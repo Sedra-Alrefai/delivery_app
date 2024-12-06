@@ -7,16 +7,15 @@ class ApiInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers.addAll({
       'Accept': 'application/json',
-      // 'Content-Type': 'multipart/form-data',
-      // 'Accept-Language': 'en',
-
-      // 'User-Agent': 'PostmanRuntime/7.43.0',
     });
 
-    options.headers[ApiKey.token] =
-        CashHelper().getData(key: ApiKey.token) != null
-            ? 'FOODAPI ${CashHelper().getData(key: ApiKey.token)}'
-            : null;
+    String? token = CashHelper().getData(key: ApiKey.token);
+    if (token != null) {
+      options.headers[ApiKey.token] = 'FOODAPI $token';
+      // Print the token being sent
+      print("Request Headers: ${options.headers}");
+    }
+
     super.onRequest(options, handler);
   }
 }

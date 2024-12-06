@@ -2,14 +2,16 @@ import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField2 extends StatelessWidget {
-  const CustomTextField2(
-      {super.key,
-      this.hintText,
-      this.icon,
-      required this.color,
-      required this.textColor,
-      this.label,
-      this.controller});
+  const CustomTextField2({
+    super.key,
+    this.hintText,
+    this.icon,
+    required this.color,
+    required this.textColor,
+    this.label,
+    this.controller,
+    required bool obscureText,
+  });
 
   final String? hintText;
   final Icon? icon;
@@ -46,6 +48,7 @@ class CustomTextField2 extends StatelessWidget {
           fillColor: color,
         ),
         style: TextStyle(color: textColor),
+        controller: controller,
       ),
     );
   }

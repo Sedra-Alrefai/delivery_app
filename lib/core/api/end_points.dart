@@ -1,10 +1,11 @@
 class EndPoint {
-  static String baseUrl = "http://127.0.0.1:8000/api/";
+  static String baseUrl = "http://192.168.1.6:8000/api/";
   static String signIn = "login";
   static String signUp = "register";
 }
 
 class ApiKey {
+  static String phoneNumber = "phoneNumber";
   static String status = "status";
   static String errorMessage = "ErrorMessage";
   static String email = "email";

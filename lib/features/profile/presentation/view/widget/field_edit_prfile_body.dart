@@ -15,6 +15,7 @@ class FieldEditPrfileBody extends StatelessWidget {
           hintText: title,
           color: const Color(0xffFFFFFF),
           textColor: Colors.grey,
+          obscureText: false,
         ));
   }
 }

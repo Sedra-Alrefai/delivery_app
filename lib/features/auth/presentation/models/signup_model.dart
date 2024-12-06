@@ -1,10 +1,13 @@
-import 'package:delivery_app/core/api/end_points.dart';
-
 class SignUpModel {
   final String message;
+  final String? token; // أضف هذا الحقل
 
-  SignUpModel({required this.message});
-  factory SignUpModel.fromJson(Map<String, dynamic> jsonData) {
-    return SignUpModel(message: jsonData[ApiKey.message]);
+  SignUpModel({required this.message, this.token});
+
+  factory SignUpModel.fromJson(Map<String, dynamic> json) {
+    return SignUpModel(
+      message: json['message'],
+      token: json['token'], // تحقق أن التوكن يأتي من هذا الحقل في الاستجابة
+    );
   }
 }

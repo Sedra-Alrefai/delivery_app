@@ -34,6 +34,7 @@ class ContainertoLockView extends StatelessWidget {
             color: AppColors.darkTealBlue,
             textColor: Colors.grey,
             label: 'Email',
+            obscureText: false,
           ),
         ),
         Positioned(

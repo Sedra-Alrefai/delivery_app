@@ -1,4 +1,3 @@
-//
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CashHelper {
@@ -11,11 +10,13 @@ class CashHelper {
 
   // Get data as String
   String? getDataString({required String key}) {
+    print("Getting data for key: $key");
     return sharedPreferences.getString(key);
   }
 
   // Save data to local database with a key
   Future<bool> saveData({required String key, required dynamic value}) async {
+    print("Saving data: $value with key: $key");
     if (value is bool) {
       return await sharedPreferences.setBool(key, value);
     } else if (value is String) {
@@ -49,6 +50,7 @@ class CashHelper {
 
   // Put data in local database with a key
   Future<bool> put({required String key, required dynamic value}) async {
+    print("Putting data: $value with key: $key");
     if (value is String) {
       return await sharedPreferences.setString(key, value);
     } else if (value is bool) {
