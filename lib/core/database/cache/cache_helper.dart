@@ -15,26 +15,26 @@ class CashHelper {
   }
 
   // Save data to local database with a key
-  // Future<bool> saveData({required String key, required dynamic value}) async {
-  //   print("Saving data: $value with key: $key");
-  //   if (value is bool) {
-  //     return await sharedPreferences.setBool(key, value);
-  //   } else if (value is String) {
-  //     return await sharedPreferences.setString(key, value);
-  //   } else if (value is int) {
-  //     return await sharedPreferences.setInt(key, value);
-  //   } else {
-  //     return await sharedPreferences.setDouble(key, value);
-  //   }
-  // }
-
   Future<bool> saveData({required String key, required dynamic value}) async {
-    if (value is String) {
+    print("Saving data: $value with key: $key");
+    if (value is bool) {
+      return await sharedPreferences.setBool(key, value);
+    } else if (value is String) {
       return await sharedPreferences.setString(key, value);
+    } else if (value is int) {
+      return await sharedPreferences.setInt(key, value);
     } else {
-      throw Exception("Unsupported value type for key: $key");
+      return await sharedPreferences.setDouble(key, value);
     }
   }
+
+  // Future<bool> saveData({required String key, required dynamic value}) async {
+  //   if (value is String) {
+  //     return await sharedPreferences.setString(key, value);
+  //   } else {
+  //     throw Exception("Unsupported value type for key: $key");
+  //   }
+  // }
 
   // Get data already saved in local database
   dynamic getData({required String key}) {

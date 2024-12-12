@@ -69,6 +69,7 @@ class _SignUpViewState extends State<SignUpView> {
     return BlocConsumer<UserCubit, UserState>(
       listener: (context, state) {
         if (state is SignUpSuccess) {
+          context.read<UserCubit>().getUserProfile();
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(state.message),
           ));

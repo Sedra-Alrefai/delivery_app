@@ -3,7 +3,6 @@ import 'package:delivery_app/core/api/api_interceptors.dart';
 import 'package:delivery_app/core/api/end_points.dart';
 import 'package:delivery_app/core/errors/exceptions.dart';
 import 'package:dio/dio.dart';
-import 'package:http/http.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
@@ -19,6 +18,8 @@ class DioConsumer extends ApiConsumer {
       responseBody: true,
       error: true,
     ));
+    // dio.options.connectTimeout = const Duration(seconds: 120);
+    // dio.options.receiveTimeout = const Duration(seconds: 120);
   }
 
   @override
@@ -75,12 +76,11 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future post(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
-  }) async {
+  Future post(String path,
+      {dynamic data,
+      Map<String, dynamic>? queryParameters,
+      bool isFromData = false,
+      Options? options}) async {
     try {
       final response = await dio.post(
         path,

@@ -30,7 +30,27 @@ class _SignInViewState extends State<SignInView> {
     if (_formKey.currentState!.validate()) {
       final email = emailController.text.trim();
       final password = passwordController.text.trim();
-      context.read<UserCubit>().signIn(email: email, password: password);
+
+      // استدعاء Cubit لتسجيل الدخول
+      context
+          .read<UserCubit>()
+          .signIn(email: email, password: password)
+          .then((_) {
+        // التحقق إذا كان التسجيل ناجحًا
+        final state = context.read<UserCubit>().state;
+        if (state is SignInSuccess) {
+          context.read<UserCubit>().getUserProfile();
+          Navigator.pushReplacementNamed(context, '/HomeView');
+        } else if (state is SignInFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(state.errMessage)),
+          );
+        }
+      }).catchError((error) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Unexpected error occurred.')),
+        );
+      });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please fill in all fields correctly')),
@@ -49,7 +69,8 @@ class _SignInViewState extends State<SignInView> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Sign In Successful')),
             );
-            CustomNavigationReplacement(context, '/HomeView');
+            CustomNavigationReplacement(
+                context, '/HomeView'); // توجيه المستخدم إلى الصفحة الرئيسية
           } else if (state is SignInFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errMessage)),

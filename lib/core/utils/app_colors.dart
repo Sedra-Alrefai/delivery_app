@@ -11,4 +11,5 @@ abstract class AppColors {
   static Color black = const Color(0xff333333);
   static Color grey = Colors.grey;
   static Color amberStars = Colors.amber;
+  static Color red = Colors.red;
 }

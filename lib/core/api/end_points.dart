@@ -1,7 +1,11 @@
 class EndPoint {
-  static String baseUrl = "http://192.168.1.6:8000/api/";
+  // static String baseUrl = "http://192.168.1.6:8000/api/";
+  static String baseUrl = "http://192.168.43.253:8000/api/";
   static String signIn = "login";
   static String signUp = "register";
+  static String getUserDataEndPoint(id) {
+    return "users/$id";
+  }
 }
 
 class ApiKey {
@@ -15,8 +19,9 @@ class ApiKey {
   static String name = "name";
   static String id = "id";
   static String message = "message";
-  // static String profilePic = "profilePic";
+  static String profilePic = "img";
   static String lastName = "lastName";
   static String phone = "phone";
   static String identifier = "identifier";
+  static String location = "location";
 }

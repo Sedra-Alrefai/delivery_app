@@ -17,7 +17,7 @@ class UserView extends StatelessWidget {
           break;
         case 1:
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (_) => MarketsView()));
+              context, MaterialPageRoute(builder: (_) => const MarketsView()));
           break;
         case 2:
           Navigator.pushReplacement(

@@ -39,36 +39,36 @@ class EditProfileBody extends StatelessWidget {
       ),
 
       const TextEditProfileAppTextfield(
-        title: 'Email',
+        title: 'Phone Number',
         topPadding: 220,
       ),
 
       const FieldEditPrfileBody(
-        title: 'change email address',
+        title: 'change number',
         topPadding: 255,
       ),
 
       const TextEditProfileAppTextfield(
-        title: 'Phone Number',
+        title: 'location',
         topPadding: 320,
       ),
       const FieldEditPrfileBody(
-        title: 'change number',
+        title: 'change location',
         topPadding: 355,
       ),
 
-      const TextEditProfileAppTextfield(
-        title: 'Password',
-        topPadding: 420,
-      ),
-      const FieldEditPrfileBody(
-        title: 'change password',
-        topPadding: 455,
-      ),
+      // const TextEditProfileAppTextfield(
+      //   title: 'Password',
+      //   topPadding: 420,
+      // ),
+      // const FieldEditPrfileBody(
+      //   title: 'change password',
+      //   topPadding: 455,
+      // ),
 
       Center(
         child: Padding(
-          padding: const EdgeInsets.only(top: 550),
+          padding: const EdgeInsets.only(top: 500),
           child: CustomButton(
             text: 'Save Change',
             color: AppColors.goldenOrange,
