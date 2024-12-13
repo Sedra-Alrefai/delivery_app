@@ -1,16 +1,34 @@
-import 'package:delivery_app/core/utils/app_colors.dart';
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ImageProfileEdit extends StatefulWidget {
   const ImageProfileEdit({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _ImageProfileEditState createState() => _ImageProfileEditState();
 }
 
 class _ImageProfileEditState extends State<ImageProfileEdit> {
-  String currentImage = 'assets/image/kk.png';
+  File? currentImage;
+
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImage() async {
+    try {
+      final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+
+      if (pickedFile != null) {
+        setState(() {
+          currentImage = File(pickedFile.path);
+        });
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Error picking image: $e'),
+      ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +45,9 @@ class _ImageProfileEditState extends State<ImageProfileEdit> {
                 width: 1,
               ),
               image: DecorationImage(
-                image: AssetImage(currentImage),
+                image: currentImage != null
+                    ? FileImage(currentImage!) as ImageProvider
+                    : const AssetImage('assets/image/kk.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -36,14 +56,10 @@ class _ImageProfileEditState extends State<ImageProfileEdit> {
             bottom: 10,
             right: 10,
             child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  currentImage = 'assets/image/new_image.png';
-                });
-              },
+              onTap: _pickImage,
               child: Container(
                 decoration: BoxDecoration(
-                  color: AppColors.goldenOrange,
+                  color: Colors.orange,
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
@@ -54,9 +70,9 @@ class _ImageProfileEditState extends State<ImageProfileEdit> {
                   ],
                 ),
                 padding: const EdgeInsets.all(5),
-                child: Icon(
+                child: const Icon(
                   Icons.edit,
-                  color: AppColors.afwait,
+                  color: Colors.white,
                 ),
               ),
             ),

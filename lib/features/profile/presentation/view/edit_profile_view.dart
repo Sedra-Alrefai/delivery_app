@@ -5,7 +5,14 @@ import 'package:delivery_app/features/profile/presentation/view/widget/image_edi
 import 'package:flutter/material.dart';
 
 class EditProfileView extends StatelessWidget {
-  const EditProfileView({super.key});
+  final String email;
+  final String? role;
+
+  const EditProfileView({
+    super.key,
+    required this.email,
+    this.role,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +34,10 @@ class EditProfileView extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const EditProfileBody(),
+          EditProfileBody(
+            email: email,
+            role: role!,
+          ),
         ])));
   }
 }

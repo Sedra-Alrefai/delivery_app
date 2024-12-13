@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:delivery_app/core/api/api_consumer.dart';
-import 'package:delivery_app/core/api/end_points.dart';
 import 'package:delivery_app/core/database/cache/cache_helper.dart';
 import 'package:delivery_app/core/errors/exceptions.dart';
 import 'package:delivery_app/features/auth/presentation/models/signin_model.dart';
@@ -149,6 +148,68 @@ class UserCubit extends Cubit<UserState> {
     } catch (e) {
       print("Error fetching user profile: $e");
       emit(GetUserFailure(errMessage: "Failed to load user profile."));
+    }
+  }
+
+  // Future<void> updateUserProfile({
+  //   required String name,
+  //   required String lastName,
+  //   required String email,
+  //   required String phoneNumber,
+  //   required String location,
+  //   required String img,
+  // }) async {
+  //   try {
+  //     emit(UpdateUserLoading());
+
+  //     final userId = CashHelper().getData(key: 'userId');
+  //     if (userId == null) {
+  //       emit(UpdateUserFailure(errMessage: "User ID not found"));
+  //       return;
+  //     }
+
+  //     final response = await api.put(
+  //       'http://192.168.43.253:8000/api/users/$userId',
+  //       data: {
+  //         'name': name,
+  //         'lastName': lastName,
+  //         'email': email,
+  //         'phoneNumber': phoneNumber,
+  //         'location': location,
+  //         'img': img,
+  //       },
+  //     );
+
+  //     final userModel = UserModel.fromJson(response['user']);
+  //     emit(UpdateUserSuccess(userModel: userModel));
+  //   } catch (e) {
+  //     print("Error updating user profile: $e");
+  //     emit(UpdateUserFailure(errMessage: "Failed to update user profile."));
+  //   }
+  // }
+  Future<void> updateUserProfile({
+    required Map<String, dynamic> updatedData,
+  }) async {
+    try {
+      emit(UpdateUserLoading());
+
+      final userId = CashHelper().getData(key: 'userId');
+      if (userId == null) {
+        emit(UpdateUserFailure(errMessage: "User ID not found"));
+        return;
+      }
+
+      // إرسال البيانات المعدلة فقط
+      final response = await api.put(
+        'http://192.168.43.253:8000/api/users/$userId',
+        data: updatedData, // إرسال الـ Map المعدل فقط
+      );
+
+      final userModel = UserModel.fromJson(response['user']);
+      emit(UpdateUserSuccess(userModel: userModel));
+    } catch (e) {
+      print("Error updating user profile: $e");
+      emit(UpdateUserFailure(errMessage: "Failed to update user profile."));
     }
   }
 }

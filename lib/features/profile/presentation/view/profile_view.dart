@@ -28,13 +28,12 @@ class ProfileView extends StatelessWidget {
                   AppBarContainerEditProfile(
                     title: 'Profile User',
                     onPressed: () {
-                      CustomNavigationReplacement(context, '/SignUpView');
+                      CustomNavigationReplacement(context, '/HomeView');
                     },
                   ),
                   IdProfileUser(
-                    userName:
-                        "${user.name} ${user.lastName}", // اسم المستخدم الكامل
-                    subTitle: user.email, // البريد الإلكتروني
+                    userName: "${user.name} ${user.lastName}",
+                    subTitle: user.email,
                   ),
                   const Divider(
                     color: Colors.grey,

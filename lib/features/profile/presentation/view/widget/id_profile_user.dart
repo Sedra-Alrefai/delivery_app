@@ -1,7 +1,10 @@
 import 'package:delivery_app/core/function/navigation.dart';
 import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/utils/app_text_Style.dart';
+import 'package:delivery_app/features/auth/presentation/view_model/cubits/cubit/user_cubit.dart';
+import 'package:delivery_app/features/profile/presentation/view/edit_profile_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class IdProfileUser extends StatelessWidget {
   const IdProfileUser(
@@ -52,8 +55,24 @@ class IdProfileUser extends StatelessWidget {
                 ),
                 TextButton.icon(
                   onPressed: () {
-                    CustomNavigationReplacement(context, '/EditProfileView');
+                    final userCubit = BlocProvider.of<UserCubit>(context);
+                    final user = (userCubit.state as GetUserSuccess).userModel;
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditProfileView(
+                          email: user.email,
+                          role: user.role,
+                        ),
+                      ),
+                    );
                   },
+
+                  // onPressed: () {
+
+                  //   CustomNavigationReplacement(context, '/EditProfileView');
+                  // },
                   icon: Icon(Icons.edit, color: AppColors.goldenOrange),
                   label: Text(
                     'Edit',

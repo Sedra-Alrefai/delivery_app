@@ -14,11 +14,11 @@ class ProfileViewBody extends StatelessWidget {
             title: "Notification",
             subTitle: 'Recent Message , tone',
             onTap: () {}),
-        GestureDetecProfileViewBody(
-            iconc: const Icon(Icons.location_on),
-            title: "Saved Addresses",
-            subTitle: 'Locations entered ',
-            onTap: () {}),
+        // GestureDetecProfileViewBody(
+        //     iconc: const Icon(Icons.location_on),
+        //     title: "Saved Addresses",
+        //     subTitle: 'Locations entered ',
+        //     onTap: () {}),
         GestureDetecProfileViewBody(
             iconc: const Icon(Icons.list_alt),
             title: "Orders",

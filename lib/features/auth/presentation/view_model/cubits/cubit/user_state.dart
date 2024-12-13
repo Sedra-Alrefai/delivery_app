@@ -42,3 +42,17 @@ final class GetUserFailure extends UserState {
 
   GetUserFailure({required this.errMessage});
 }
+
+final class UpdateUserSuccess extends UserState {
+  final UserModel userModel;
+
+  UpdateUserSuccess({required this.userModel});
+}
+
+final class UpdateUserLoading extends UserState {}
+
+final class UpdateUserFailure extends UserState {
+  final String errMessage;
+
+  UpdateUserFailure({required this.errMessage});
+}

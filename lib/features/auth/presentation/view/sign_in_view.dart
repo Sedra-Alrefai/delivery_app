@@ -79,125 +79,124 @@ class _SignInViewState extends State<SignInView> {
         },
         builder: (context, state) {
           return SingleChildScrollView(
-            child: Stack(
-              children: [
-                Column(
-                  children: [
-                    const SizedBox(height: 150),
-                    const HeaderWidget(),
-                    const SizedBox(height: 100),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      child: Form(
-                        key: _formKey,
-                        child: Column(
-                          children: [
-                            CustomTextField(
-                              controller: emailController,
-                              label: 'Email or Phone',
-                              labelColor: Colors.grey,
-                              hintText: 'Email or Phone',
-                              textColor: Colors.grey,
-                              icon:
-                                  const Icon(Icons.person, color: Colors.grey),
-                              color: const Color(0xff1A2E35),
-                              obscureText: false,
-                              onChanged: (value) {},
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your email or phone';
-                                }
-                                return null;
-                              },
-                            ),
-                            const SizedBox(height: 24),
-                            CustomTextField(
-                              controller: passwordController,
-                              label: 'Password',
-                              labelColor: Colors.grey,
-                              hintText: 'Password',
-                              textColor: Colors.grey,
-                              icon: const Icon(Icons.lock, color: Colors.grey),
-                              color: const Color(0xff1A2E35),
-                              obscureText: true,
-                              onChanged: (value) {},
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your password';
-                                }
-                                if (value.length < 6) {
-                                  return 'Password must be at least 6 characters long';
-                                }
-                                return null;
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 65),
-                    Container(
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50),
-                        ),
-                      ),
+              child: Stack(
+            children: [
+              Column(
+                children: [
+                  const SizedBox(height: 150),
+                  const HeaderWidget(),
+                  const SizedBox(height: 100),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    child: Form(
+                      key: _formKey,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const SizedBox(height: 32),
-                          GestureDetector(
-                            onTap: () {
-                              CustomNavigationReplacement(
-                                  context, '/ForgetPasswordView');
+                          CustomTextField(
+                            controller: emailController,
+                            label: 'Email or Phone',
+                            labelColor: Colors.grey,
+                            hintText: 'Email or Phone',
+                            textColor: Colors.grey,
+                            icon: const Icon(Icons.person, color: Colors.grey),
+                            color: const Color(0xff1A2E35),
+                            obscureText: false,
+                            onChanged: (value) {},
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your email or phone';
+                              }
+                              return null;
                             },
-                            child: const Text(
-                              'Forgot Password?',
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
                           ),
-                          const SizedBox(height: 32),
-                          CustomButton(
-                            onTap: () {
-                              _signIn(context);
+                          const SizedBox(height: 24),
+                          CustomTextField(
+                            controller: passwordController,
+                            label: 'Password',
+                            labelColor: Colors.grey,
+                            hintText: 'Password',
+                            textColor: Colors.grey,
+                            icon: const Icon(Icons.lock, color: Colors.grey),
+                            color: const Color(0xff1A2E35),
+                            obscureText: true,
+                            onChanged: (value) {},
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your password';
+                              }
+                              if (value.length < 6) {
+                                return 'Password must be at least 6 characters long';
+                              }
+                              return null;
                             },
-                            text: 'Login',
-                            color: AppColors.tealGreen,
                           ),
-                          const SizedBox(height: 12),
-                          const Text(
-                            'or',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          CustomButton(
-                            onTap: () {
-                              CustomNavigationReplacement(
-                                  context, '/SignUpView');
-                            },
-                            text: 'Create an Account',
-                            color: AppColors.tealGreen,
-                          ),
-                          const SizedBox(height: 100),
                         ],
                       ),
                     ),
-                  ],
-                ),
-                if (state is SignInLoading)
+                  ),
+                  const SizedBox(height: 65),
                   Container(
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(50),
+                        topRight: Radius.circular(50),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 32),
+                        GestureDetector(
+                          onTap: () {
+                            CustomNavigationReplacement(
+                                context, '/ForgetPasswordView');
+                          },
+                          child: const Text(
+                            'Forgot Password?',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 32),
+                        CustomButton(
+                          onTap: () {
+                            _signIn(context);
+                          },
+                          text: 'Login',
+                          color: AppColors.tealGreen,
+                        ),
+                        const SizedBox(height: 12),
+                        const Text(
+                          'or',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        CustomButton(
+                          onTap: () {
+                            CustomNavigationReplacement(context, '/SignUpView');
+                          },
+                          text: 'Create an Account',
+                          color: AppColors.tealGreen,
+                        ),
+                        const SizedBox(height: 100),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              if (state is SignInLoading)
+                Positioned.fill(
+                  child: Container(
                     color: const Color(0xff1A2E35).withOpacity(0.8),
                     child: Center(
                       child: Column(
@@ -217,9 +216,9 @@ class _SignInViewState extends State<SignInView> {
                       ),
                     ),
                   ),
-              ],
-            ),
-          );
+                ),
+            ],
+          ));
         },
       ),
     );

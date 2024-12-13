@@ -53,14 +53,14 @@ final GoRouter router = GoRouter(routes: [
     path: "/profileView",
     builder: (context, state) => const ProfileView(),
   ),
-  GoRoute(
-    path: "/EditProfileView",
-    builder: (context, state) => const EditProfileView(),
-  ),
-  GoRoute(
-    path: "/Pr",
-    builder: (context, state) => const EditProfileView(),
-  ),
+  // GoRoute(
+  //   path: "/EditProfileView",
+  //   builder: (context, state) => const EditProfileView(),
+  // ),
+  // GoRoute(
+  //   path: "/Pr",
+  //   builder: (context, state) => const EditProfileView(),
+  // ),
   GoRoute(
     path: "/ProductDetailsView",
     builder: (context, state) => const ProductDetailsView(
