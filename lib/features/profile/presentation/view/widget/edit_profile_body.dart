@@ -179,7 +179,6 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                   onTap: () {
                     Map<String, dynamic> updatedData = {};
 
-                    // القيم المعدلة
                     if (firstNameController.text.isNotEmpty) {
                       updatedData['name'] = firstNameController.text;
                     }
@@ -199,7 +198,6 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                     updatedData['email'] = widget.email;
                     updatedData['role'] = widget.role;
 
-                    // تحويل الصورة إلى Base64 إذا كانت موجودة
                     if (currentImage != null) {
                       updatedData['img'] =
                           base64Encode(currentImage!.readAsBytesSync());
@@ -207,7 +205,6 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                       updatedData['img'] = '';
                     }
 
-                    // إرسال البيانات المحدثة إلى الخادم
                     context
                         .read<UserCubit>()
                         .updateUserProfile(updatedData: updatedData);

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:delivery_app/core/api/api_consumer.dart';
 import 'package:delivery_app/core/database/cache/cache_helper.dart';
@@ -39,6 +41,8 @@ class UserCubit extends Cubit<UserState> {
 
   SignInModel? user;
   SignUpModel? signUpUser;
+
+// ___________________SignUp_______________
 
   signUp({
     required String firstName,
@@ -92,6 +96,7 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
+//___________________________SignIn________________________
   Future<void> signIn({required String email, required String password}) async {
     try {
       emit(SignInLoading());
@@ -123,7 +128,7 @@ class UserCubit extends Cubit<UserState> {
       emit(SignInFailure(errMessage: "Unexpected error occurred: $e"));
     }
   }
-//__________________
+//__________________get profile _________________
 
   Future<void> getUserProfile() async {
     try {
@@ -151,13 +156,9 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
+  //__________________update user  _________________
   // Future<void> updateUserProfile({
-  //   required String name,
-  //   required String lastName,
-  //   required String email,
-  //   required String phoneNumber,
-  //   required String location,
-  //   required String img,
+  //   required Map<String, dynamic> updatedData,
   // }) async {
   //   try {
   //     emit(UpdateUserLoading());
@@ -170,14 +171,7 @@ class UserCubit extends Cubit<UserState> {
 
   //     final response = await api.put(
   //       'http://192.168.43.253:8000/api/users/$userId',
-  //       data: {
-  //         'name': name,
-  //         'lastName': lastName,
-  //         'email': email,
-  //         'phoneNumber': phoneNumber,
-  //         'location': location,
-  //         'img': img,
-  //       },
+  //       data: updatedData,
   //     );
 
   //     final userModel = UserModel.fromJson(response['user']);
@@ -189,6 +183,7 @@ class UserCubit extends Cubit<UserState> {
   // }
   Future<void> updateUserProfile({
     required Map<String, dynamic> updatedData,
+    File? imageFile, // إضافة الملف كمعامل اختياري
   }) async {
     try {
       emit(UpdateUserLoading());
@@ -199,10 +194,19 @@ class UserCubit extends Cubit<UserState> {
         return;
       }
 
-      // إرسال البيانات المعدلة فقط
+      // إعداد بيانات الطلب مع الصورة إذا وُجدت
+      FormData formData = FormData.fromMap(updatedData);
+      if (imageFile != null) {
+        formData.files.add(MapEntry(
+          'img',
+          await MultipartFile.fromFile(imageFile.path, filename: 'profile.jpg'),
+        ));
+      }
+
+      // إرسال الطلب باستخدام FormData
       final response = await api.put(
         'http://192.168.43.253:8000/api/users/$userId',
-        data: updatedData, // إرسال الـ Map المعدل فقط
+        data: formData,
       );
 
       final userModel = UserModel.fromJson(response['user']);
@@ -213,7 +217,8 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  //________
+  //________log out _____________________
+
   Future<void> logout() async {
     try {
       emit(LogoutLoading());

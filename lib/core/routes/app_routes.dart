@@ -5,9 +5,7 @@ import 'package:delivery_app/features/favorite/favorite_view.dart';
 import 'package:delivery_app/features/home/presentation/views/home_view.dart';
 import 'package:delivery_app/features/markets/presentation/views/markets_view.dart';
 import 'package:delivery_app/features/on_boarding/presentation/views/on_boarding_view.dart';
-import 'package:delivery_app/features/profile/presentation/view/edit_profile_view.dart';
 import 'package:delivery_app/features/profile/presentation/view/profile_view.dart';
-import 'package:delivery_app/features/single_product/single_product_view.dart';
 import 'package:delivery_app/features/splash/presentation/view/splash_view.dart';
 import 'package:delivery_app/features/user/user_view.dart';
 import 'package:go_router/go_router.dart';
@@ -52,24 +50,5 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
     path: "/profileView",
     builder: (context, state) => const ProfileView(),
-  ),
-  // GoRoute(
-  //   path: "/EditProfileView",
-  //   builder: (context, state) => const EditProfileView(),
-  // ),
-  // GoRoute(
-  //   path: "/Pr",
-  //   builder: (context, state) => const EditProfileView(),
-  // ),
-  GoRoute(
-    path: "/ProductDetailsView",
-    builder: (context, state) => const ProductDetailsView(
-      productName: 'mmmmmmm',
-      productPrice: 45,
-      description:
-          'vvbnbvcvbnmnbvcxcfgbhcxcgbhdsxfgbhnbfdxfgbhbfdxfgbhdsfjkdfhdghfghgyhghgtghgtghgtghgthgcvbghgfdl;bhgtvbhgvgbtvbhgvbhgvhgthnygtvfgbh',
-      productImage: 'assets/image/store.jpg',
-      rating: 3,
-    ),
   ),
 ]);

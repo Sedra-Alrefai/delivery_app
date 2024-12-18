@@ -1,3 +1,4 @@
+import 'package:delivery_app/core/function/navigation.dart';
 import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,18 @@ class HeaderSection extends StatelessWidget {
                   style: CustomTextStyle.parkinsans500Style24
                       .copyWith(color: AppColors.afwait, fontSize: 25)),
             ],
+          ),
+        ),
+        Positioned(
+          top: 30,
+          right: 16,
+          child: GestureDetector(
+            onTap: () {
+              CustomNavigationReplacement(context, '/HomeView');
+            },
+            child: Text('Skip',
+                style: CustomTextStyle.parkinsans300Style16
+                    .copyWith(color: AppColors.afwait)),
           ),
         ),
       ],

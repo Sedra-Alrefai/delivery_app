@@ -42,14 +42,12 @@ class _SignUpViewState extends State<SignUpView> {
       final password = passwordController.text.trim();
       final phoneNumber = phoneNumberController.text.trim();
 
-      // Debug print statements
       print('First Name: $firstName');
       print('Last Name: $lastName');
       print('Email: $email');
       print('Password: $password');
       print('Phone Number: $phoneNumber');
 
-      // إرسال البيانات عبر الـ Cubit
       context.read<UserCubit>().signUp(
             firstName: firstName,
             lastName: lastName,
@@ -115,7 +113,7 @@ class _SignUpViewState extends State<SignUpView> {
                         const SizedBox(height: 10),
                         CustomTextField2(
                           hintText: "Phone Number",
-                          controller: phoneNumberController, // الربط بالحقل
+                          controller: phoneNumberController,
                           icon: const Icon(Icons.phone, color: Colors.grey),
                           color: Colors.white,
                           textColor: Colors.black,
@@ -155,8 +153,7 @@ class _SignUpViewState extends State<SignUpView> {
                           text: 'Sign Up',
                           color: AppColors.darkTealBlue,
                           onTap: () {
-                            _signUp(
-                                context); // استدعاء دالة _signUp عند الضغط على الزر
+                            _signUp(context);
                           },
                         ),
                       ],
