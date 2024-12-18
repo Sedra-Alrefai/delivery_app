@@ -31,12 +31,10 @@ class _SignInViewState extends State<SignInView> {
       final email = emailController.text.trim();
       final password = passwordController.text.trim();
 
-      // استدعاء Cubit لتسجيل الدخول
       context
           .read<UserCubit>()
           .signIn(email: email, password: password)
           .then((_) {
-        // التحقق إذا كان التسجيل ناجحًا
         final state = context.read<UserCubit>().state;
         if (state is SignInSuccess) {
           context.read<UserCubit>().getUserProfile();
@@ -69,8 +67,7 @@ class _SignInViewState extends State<SignInView> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Sign In Successful')),
             );
-            CustomNavigationReplacement(
-                context, '/HomeView'); // توجيه المستخدم إلى الصفحة الرئيسية
+            CustomNavigationReplacement(context, '/HomeView');
           } else if (state is SignInFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errMessage)),

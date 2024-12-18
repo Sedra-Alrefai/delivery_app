@@ -212,4 +212,27 @@ class UserCubit extends Cubit<UserState> {
       emit(UpdateUserFailure(errMessage: "Failed to update user profile."));
     }
   }
+
+  //________
+  Future<void> logout() async {
+    try {
+      emit(LogoutLoading());
+
+      final token = CashHelper().getDataString(key: 'token');
+      if (token == null || token.isEmpty) {
+        emit(LogoutFailure(errMessage: "No token found."));
+        return;
+      }
+
+      await api.post(
+        'http://192.168.43.253:8000/api/logout',
+        headers: {'Authorization': 'Bearer $token'},
+      );
+
+      await CashHelper().clearData();
+      emit(LogoutSuccess());
+    } catch (e) {
+      emit(LogoutFailure(errMessage: "Failed to log out: $e"));
+    }
+  }
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/widget/custom_button.dart';
 import 'package:delivery_app/features/auth/presentation/view_model/cubits/cubit/user_cubit.dart';
@@ -5,20 +7,46 @@ import 'package:delivery_app/features/profile/presentation/view/widget/field_edi
 import 'package:delivery_app/features/profile/presentation/view/widget/text_edit_profile_app_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
-class EditProfileBody extends StatelessWidget {
+class EditProfileBody extends StatefulWidget {
+  final String email;
+  final String role;
+
+  const EditProfileBody({
+    super.key,
+    required this.email,
+    required this.role,
+  });
+
+  @override
+  State<EditProfileBody> createState() => _EditProfileBodyState();
+}
+
+class _EditProfileBodyState extends State<EditProfileBody> {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController locationController = TextEditingController();
 
-  final String email;
-  final String role;
+  File? currentImage;
+  final ImagePicker _picker = ImagePicker();
 
-  EditProfileBody({
-    required this.email,
-    required this.role,
-  });
+  Future<void> _pickImage() async {
+    try {
+      final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+
+      if (pickedFile != null) {
+        setState(() {
+          currentImage = File(pickedFile.path);
+        });
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Error picking image: $e'),
+      ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,44 +80,99 @@ class EditProfileBody extends StatelessWidget {
                 ),
               ),
             ),
+            Positioned(
+              top: 20,
+              left: MediaQuery.of(context).size.width / 2 - 80,
+              child: Center(
+                child: Stack(
+                  children: [
+                    Container(
+                      width: 160,
+                      height: 160,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
+                        image: DecorationImage(
+                          image: currentImage != null
+                              ? FileImage(currentImage!) as ImageProvider
+                              : const AssetImage('assets/image/kk.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      right: 10,
+                      child: GestureDetector(
+                        onTap: _pickImage,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.orange,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                blurRadius: 5,
+                                spreadRadius: 2,
+                              ),
+                            ],
+                          ),
+                          padding: const EdgeInsets.all(5),
+                          child: const Icon(
+                            Icons.edit,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             const TextEditProfileAppTextfield(
               title: 'First Name',
-              topPadding: 20,
+              topPadding: 200,
             ),
             FieldEditPrfileBody(
               title: 'First Name',
               controller: firstNameController,
-              topPadding: 60,
+              topPadding: 240,
             ),
             const TextEditProfileAppTextfield(
-                title: 'Last Name', topPadding: 120),
+                title: 'Last Name', topPadding: 300),
             FieldEditPrfileBody(
               title: 'Last Name',
               controller: lastNameController,
-              topPadding: 155,
+              topPadding: 335,
             ),
             const TextEditProfileAppTextfield(
               title: 'Phone Number',
-              topPadding: 220,
+              topPadding: 400,
             ),
             FieldEditPrfileBody(
               title: 'Phone Number',
               controller: phoneNumberController,
-              topPadding: 255,
+              topPadding: 435,
             ),
             const TextEditProfileAppTextfield(
               title: 'Location',
-              topPadding: 320,
+              topPadding: 500,
             ),
             FieldEditPrfileBody(
               title: 'Location',
               controller: locationController,
-              topPadding: 355,
+              topPadding: 535,
             ),
             const SizedBox(height: 20),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 500),
+                padding: const EdgeInsets.only(top: 600),
                 child: CustomButton(
                   text: 'Save Changes',
                   color: AppColors.goldenOrange,
@@ -113,10 +196,18 @@ class EditProfileBody extends StatelessWidget {
                       updatedData['location'] = locationController.text;
                     }
 
-                    updatedData['email'] = email;
-                    updatedData['role'] = role;
-                    updatedData['img'] = '';
+                    updatedData['email'] = widget.email;
+                    updatedData['role'] = widget.role;
 
+                    // تحويل الصورة إلى Base64 إذا كانت موجودة
+                    if (currentImage != null) {
+                      updatedData['img'] =
+                          base64Encode(currentImage!.readAsBytesSync());
+                    } else {
+                      updatedData['img'] = '';
+                    }
+
+                    // إرسال البيانات المحدثة إلى الخادم
                     context
                         .read<UserCubit>()
                         .updateUserProfile(updatedData: updatedData);

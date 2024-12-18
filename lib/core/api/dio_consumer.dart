@@ -18,22 +18,23 @@ class DioConsumer extends ApiConsumer {
       responseBody: true,
       error: true,
     ));
-    // dio.options.connectTimeout = const Duration(seconds: 120);
-    // dio.options.receiveTimeout = const Duration(seconds: 120);
   }
 
   @override
-  Future delete(
+  Future<dynamic> delete(
     String path, {
-    dynamic data,
+    Object? data,
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
+    Map<String, dynamic>? headers,
   }) async {
     try {
       final response = await dio.delete(
         path,
-        data: isFromData ? FormData.fromMap(data) : data,
+        data:
+            isFromData ? FormData.fromMap(data as Map<String, dynamic>) : data,
         queryParameters: queryParameters,
+        options: Options(headers: headers),
       );
       return response.data;
     } on DioException catch (e) {
@@ -42,13 +43,17 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future get(String path,
-      {Object? data, Map<String, dynamic>? queryParameters}) async {
+  Future<dynamic> get(
+    String path, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
+  }) async {
     try {
       final response = await dio.get(
         path,
-        data: data,
         queryParameters: queryParameters,
+        options: Options(headers: headers),
       );
       return response.data;
     } on DioException catch (e) {
@@ -57,17 +62,20 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future patch(
+  Future<dynamic> patch(
     String path, {
-    dynamic data,
+    Object? data,
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
+    Map<String, dynamic>? headers,
   }) async {
     try {
       final response = await dio.patch(
         path,
-        data: isFromData ? FormData.fromMap(data) : data,
+        data:
+            isFromData ? FormData.fromMap(data as Map<String, dynamic>) : data,
         queryParameters: queryParameters,
+        options: Options(headers: headers),
       );
       return response.data;
     } on DioException catch (e) {
@@ -76,20 +84,21 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future post(String path,
-      {dynamic data,
-      Map<String, dynamic>? queryParameters,
-      bool isFromData = false,
-      Options? options}) async {
+  Future<dynamic> post(
+    String path, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    bool isFromData = false,
+    Map<String, dynamic>? headers,
+  }) async {
     try {
       final response = await dio.post(
         path,
-        data: isFromData ? FormData.fromMap(data) : data,
+        data:
+            isFromData ? FormData.fromMap(data as Map<String, dynamic>) : data,
         queryParameters: queryParameters,
         options: Options(
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: headers ?? {"Content-Type": "application/json"},
         ),
       );
       return response.data;
@@ -99,17 +108,20 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future put(
+  Future<dynamic> put(
     String path, {
-    dynamic data,
+    Object? data,
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
+    Map<String, dynamic>? headers,
   }) async {
     try {
       final response = await dio.put(
         path,
-        data: isFromData ? FormData.fromMap(data) : data,
+        data:
+            isFromData ? FormData.fromMap(data as Map<String, dynamic>) : data,
         queryParameters: queryParameters,
+        options: Options(headers: headers),
       );
       return response.data;
     } on DioException catch (e) {

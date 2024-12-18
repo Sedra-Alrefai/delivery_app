@@ -1,4 +1,5 @@
 import 'package:delivery_app/core/function/navigation.dart';
+import 'package:delivery_app/core/utils/app_colors.dart';
 import 'package:delivery_app/core/utils/app_text_Style.dart';
 import 'package:delivery_app/features/auth/presentation/view_model/cubits/cubit/user_cubit.dart';
 import 'package:delivery_app/features/profile/presentation/view/widget/app_bar_container_edit_profile.dart';
@@ -19,7 +20,8 @@ class ProfileView extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state is GetUserSuccess) {
+            // ignore: unnecessary_null_comparison
+          } else if (state is GetUserSuccess && state.userModel != null) {
             final user = state.userModel;
             return SingleChildScrollView(
               child: Column(
@@ -56,28 +58,66 @@ class ProfileView extends StatelessWidget {
                 ],
               ),
             );
-          } else if (state is GetUserFailure) {
-            return Center(
-              child: Text(
-                "Error: ${state.errMessage}",
-                style: const TextStyle(
-                  color: Colors.red,
-                  fontSize: 16,
-                ),
-              ),
-            );
           } else {
-            return const Center(
-              child: Text(
-                "No user data available.",
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-            );
+            // عرض الديالوغ في حال الفشل أو عدم وجود بيانات
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (context) {
+                  return _buildErrorDialog(context);
+                },
+              );
+            });
+
+            return const SizedBox.shrink();
           }
         },
       ),
+    );
+  }
+
+  Widget _buildErrorDialog(BuildContext context) {
+    return AlertDialog(
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text('Account Error',
+              style: CustomTextStyle.parkinsans500Style24
+                  .copyWith(color: AppColors.darkTealBlue)),
+          IconButton(
+            icon: Icon(Icons.close, color: AppColors.darkTealBlue),
+            onPressed: () {
+              CustomNavigationReplacement(context, '/HomeView');
+            },
+          ),
+        ],
+      ),
+      content: Text("No account found. Please register or log in.",
+          style: CustomTextStyle.parkinsans300Style16
+              .copyWith(fontWeight: FontWeight.w600)),
+      actions: [
+        TextButton(
+          onPressed: () {
+            CustomNavigationReplacement(context, '/SignUpView');
+          },
+          child: Text(
+            "Register",
+            style: CustomTextStyle.parkinsans300Style16
+                .copyWith(color: AppColors.goldenOrange),
+          ),
+        ),
+        TextButton(
+          onPressed: () {
+            CustomNavigationReplacement(context, '/SignInView');
+          },
+          child: Text(
+            "Log In",
+            style: CustomTextStyle.parkinsans300Style16
+                .copyWith(color: AppColors.goldenOrange),
+          ),
+        ),
+      ],
     );
   }
 }

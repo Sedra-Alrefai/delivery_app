@@ -30,10 +30,6 @@ class EditProfileView extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const ImageProfileEdit(),
-          const SizedBox(
-            height: 20,
-          ),
           EditProfileBody(
             email: email,
             role: role!,
