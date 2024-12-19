@@ -67,4 +67,10 @@ abstract class CustomTextStyle {
     fontSize: 14,
     fontWeight: FontWeight.bold,
   );
+  static final parkinsans400StyleW24 = TextStyle(
+    fontFamily: 'Parkinsans',
+    color: AppColors.darkTealBlue,
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
 }

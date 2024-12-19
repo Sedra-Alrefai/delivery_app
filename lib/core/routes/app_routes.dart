@@ -8,9 +8,10 @@ import 'package:delivery_app/features/on_boarding/presentation/views/on_boarding
 import 'package:delivery_app/features/profile/presentation/view/profile_view.dart';
 import 'package:delivery_app/features/splash/presentation/view/splash_view.dart';
 import 'package:delivery_app/features/user/user_view.dart';
+import 'package:delivery_app/order/order_status.dart';
 import 'package:go_router/go_router.dart';
 
-final GoRouter router = GoRouter(routes: [
+final GoRouter router = GoRouter(initialLocation: "/OrderStatus", routes: [
   GoRoute(
     path: "/",
     builder: (context, state) => const SplashView(),
@@ -50,5 +51,9 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
     path: "/profileView",
     builder: (context, state) => const ProfileView(),
+  ),
+  GoRoute(
+    path: "/OrderStatus",
+    builder: (context, state) => const OrderStatus(status: 'pending'),
   ),
 ]);
